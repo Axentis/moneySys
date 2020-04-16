@@ -1,0 +1,54 @@
+/* Start General rules */
+
+/* End General rules */
+
+/* Start Nav Vertical */
+.media .media-body p:first-of-type{
+    font-weight: 700;
+    margin: 0;
+    color: #1a237e;
+}
+.media .media-body p:last-of-type{
+    font-size: 0.77em;    
+    margin: 0;
+    color: #1a237e;
+}
+
+.accordion{
+    /* height: 400px; */
+}
+
+.card{
+    border: none;
+    padding: 5px 15px 5px 15px;
+}
+.card-header{
+    padding: 5px 10px 5px 10px;
+    margin: 0;
+    background-color: #ffffff;
+    border: none;
+}
+
+
+.card-header p span{    
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    color: #424242;
+    margin-left: 5px;
+}
+.card-body{
+    padding: 0;
+}
+
+.card-body .list-group .list-group-item span a{
+    text-decoration: none;
+    color: #424242;
+}
+.card-body .list-group .list-group-item{
+    border: none;
+    padding: 7.5px 0 7.5px 20px;
+    /* background-color: aqua; */
+    font-size: 0.8em;    
+}
+/* End Nav Vertical  */

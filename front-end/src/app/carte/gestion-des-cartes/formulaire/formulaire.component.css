@@ -1,0 +1,35 @@
+.marg{
+    margin-top:10px;
+}
+
+.form-inline,form{
+    margin: 5px 0px 5px 0px ;
+}
+.card-header.a{
+    margin-top: 10px;
+}
+.panel1,.panel2,.panel3{
+    border: 2px solid lightgray;
+}
+.btn-secondary{
+    margin-left: 5px;
+}
+.first{
+    margin-top: 20px;
+}
+.last{
+    margin-bottom: 20px;
+}
+.renouvlable{
+    margin: 20px 0px 20px 0px;
+}
+.card-header{
+    border: 2px solid lightgray;
+    background-color: darkgray;
+}
+.date{
+    margin-top: 12px;
+}
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid red;
+}

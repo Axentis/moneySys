@@ -82,39 +82,7 @@
         </div>
         <!-- End Home -->
 
-        <!-- Start Module Compte -->
-        <div class="accordion mt-4" id="compte">
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <p class="mb-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                aria-controls="collapseOne">
-                <i class="fa fa-user"></i>
-                <span>Compte</span>
-              </p>
-            </div>
-
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#compte">
-              <div class="card-body">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <i class="fa fa-times"></i>
-                    <span> <a href="">Cras justo odio</a> </span>
-                  </li>
-                  <li class="list-group-item">
-                    <i class="fa fa-check"></i>
-                    <span> <a href="">Dapibus ac facilisis in</a> </span>
-                  </li>
-                  <li class="list-group-item">
-                    <i class="fa fa-cog"></i>
-                    <span> <a href="">Morbi leo risus</a> </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!-- End Module Compte -->
+        
 
         <!-- Start Module Cart -->
         <div class="accordion mt-4" id="cart">
@@ -123,7 +91,7 @@
               <p class="mb-0" data-toggle="collapse" data-target="#collapseCart" aria-expanded="true"
                 aria-controls="collapseCart">
                 <i class="fa fa-credit-card-alt"></i>
-                <span>Cart</span>
+                <span>Carte</span>
               </p>
             </div>
 
@@ -132,7 +100,7 @@
                 <ul class="list-group">
                   <li class="list-group-item">
                     <i class="fa fa-times"></i>
-                    <span> <a href="">Cras justo odio</a> </span>
+                    <span> <a [routerLink]="'/gestionCarte'">Gestion des cartes</a> </span>
                   </li>
                   <li class="list-group-item">
                     <i class="fa fa-check"></i>
@@ -158,7 +126,7 @@
 
     </div>
 
-    <div class="col-lg-10">
+    <div class="col-lg-10 container marg">
       <!-- Start Content  -->
       <router-outlet></router-outlet>
       <!-- End Content -->

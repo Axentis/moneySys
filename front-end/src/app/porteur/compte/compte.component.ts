@@ -39,14 +39,14 @@ export class CompteComponent implements OnInit {
   }
 
   onCompte(compte:Compte){
+    
     // console.log(compte)
-
     if(this.globalService.porteur){
       this.globalService.porteur.compte  =  compte
     }
     
     // navigate to handling porteur
-    this.router.navigate(['porteur']);
+    this.router.navigate(['porteur/ajouterPorteur']);
 
   }
 

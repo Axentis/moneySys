@@ -1,0 +1,56 @@
+<div class="card-header ">
+    Ajout
+    <button type="button" class="close" aria-label="Close">
+        <span a ria-hidden="true">
+            &times;
+        </span>
+    </button>
+</div>
+<!-- <form (ngSubmit)="onSubmit()" #porteurForm="ngForm">
+    <input [(ngModel)]="porteur.nom" #nom="ngModel" class="form-check-input" type="text" id="Situation1" name="nom">
+    <label class="form-check-label" for="Situation">Nom</label>
+</form> -->
+
+<form (ngSubmit)="onSubmit()" #banqueForm="ngForm">
+    <div class="card-body">
+        <div class="row">
+            <div class="col center">
+                <div class="card-header">
+                    Information Banque
+                </div>
+                <div class="card-body">
+                    <div class="container">
+
+                        <!--Code banque-->
+                        <div class="form-inline row">
+                            <label for="Code" class="col-form-label col-lg-5 text-left">Code</label>
+                            <input [(ngModel)]="banque.code" #Code="ngModel" type="text" name="Code" class="form-control col-lg-5">
+                        </div>
+
+                        <!--Nom-->
+                        <div class="form-inline row mt-1">
+                            <label for="nom" class="col-form-label col-lg-5 text-left">Nom</label>
+                            <input [(ngModel)]="banque.nom" #nom="ngModel" type="text" name="nom" class="form-control col-lg-5">
+                        </div>
+                        <!-- Address -->
+                        <div class="form-inline row mt-1">
+                            <label for="address" class="col-lg-5 text-left">address</label>
+                            <input [(ngModel)]="banque.address" #address="ngModel" type="text" name="address" class="form-control col-lg-5" id="address">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!--Fin-->
+    </div>
+    <div class="card-footer">
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn  btn-sm btn-secondary">
+                Ajouter
+            </button>
+        </div>
+    </div>
+</form>

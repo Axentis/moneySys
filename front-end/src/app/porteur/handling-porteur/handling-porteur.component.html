@@ -1,222 +1,192 @@
 <!-- for test -->
-<!-- <p> fetch data for test (remove this block when you finish testing ):<br>
-    nom : {{ porteur.nom }} <br>
-    prenom : {{ porteur.prenom }} <br>
-    cin : {{ porteur.cin }} <br>
-    sex : {{ porteur.sex }} <br>
-    sex : {{ porteur.situationFamiliale }} <br>
-  </p> -->
-<div class="row">
-    <div class="col-lg-7">
-  
-        <div class="card-header">Information Porteurs</div>
-        <div class="card-body">
-            <div class="container">
+<p> fetch data for test (remove this block when you finish testing ):<br> nom : {{ porteur.nom }} ||| dateNaissance : {{ porteur.dateNaissance }} <br> prenom : {{ porteur.prenom }} ||| address : {{ porteur.address }} <br> cin : {{ porteur.cin }} ||| codePostale
+    : {{ porteur.codePostale }} <br> sex : {{ porteur.sexe }} ||| telephone : {{ porteur.telephone }} <br> situationFamiliale : {{ porteur.situationFamiliale }} || email : {{ porteur.email }} <br> categorie : {{ porteur.categorie }}
 
-                <form (ngSubmit)="onSubmit()" #porteurForm="ngForm">
-                    
-                    <!-- Numéro du compte -->
-                    <div class="form-inline row">
-                        <label for="num" class="text-left col-lg-5">Num�ro de compte </label>
-                        <input
-                            [(ngModel)]="porteur.compte.bin" 
-                            #bin="ngModel"
-                            type="text" name="bin" class="form-control col-lg-5" disabled>
-                        <a [routerLink]="['/porteur/compte']" class="btn btn-secondary">+</a>
-                    </div>
+</p>
+<div class="card-header ">
+    Ajout
+    <button type="button" class="close" aria-label="Close">
+        <span a ria-hidden="true">
+            &times;
+        </span>
+    </button>
+</div>
+<!-- <form (ngSubmit)="onSubmit()" #porteurForm="ngForm">
+    <input [(ngModel)]="porteur.nom" #nom="ngModel" class="form-check-input" type="text" id="Situation1" name="nom">
+    <label class="form-check-label" for="Situation">Nom</label>
+</form> -->
 
-                    <!-- Nom -->
-                    <div class="form-inline row">
-                        <label for="nom " class="col-form-label col-lg-5 text-left">Nom </label>
-                        <input 
-                            [(ngModel)]="porteur.nom" 
-                            #nom="ngModel"
-                            type="text" name="nom" class="form-control col-lg-5">
-                        
-                    </div>
+<form (ngSubmit)="onSubmit()" #porteurForm="ngForm">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="card-header">
+                    Information Porteurs
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <!-- Numéro du compte-->
+                        <div class="form-inline row">
+                            <label for="num" class="text-left col-lg-5">Numéro de compte</label>
+                            <input [(ngModel)]="porteur.compte.bin" #bin="ngModel" name="bin" type="text" id="num" class="form-control col-lg-5" disabled>
+                            <a [routerLink]="['/porteur/compte']" class="btn btn-secondary">+</a>
+                        </div>
 
-                     <!-- Prénom -->
-                    <div class="form-inline row">
-                        <label for="prenom" class="col-lg-5 text-left">Prenom </label>
-                        <input 
-                            [(ngModel)]="porteur.prenom" 
-                            #prenom="ngModel"
-                            type="text" name="prenom" class="form-control col-lg-5">
-                    </div>
+                        <!--Nom-->
+                        <div class="form-inline row">
+                            <label for="nom" class="col-form-label col-lg-5 text-left">Nom</label>
+                            <input [(ngModel)]="porteur.nom" #nom="ngModel" type="text" name="nom" class="form-control col-lg-5">
+                        </div>
+                        <!-- Prénom-->
+                        <div class="form-inline row">
+                            <label for="prenom" class="col-lg-5 text-left">Prenom</label>
+                            <input [(ngModel)]="porteur.prenom" #prenom="ngModel" type="text" name="prenom" class="form-control col-lg-5" id="prenom">
+                        </div>
+                        <!-- CIN-->
+                        <div class="form-inline row">
+                            <label for="CIN" class="col-form-label text-left col-lg-5">Code d'identité nationale</label>
+                            <input [(ngModel)]="porteur.cin" #prenom="ngModel" type="text" name="cin" id="CIN" class="form-control col-lg-5">
+                        </div>
+                        <!-- Code Sociaux professionelle-->
+                        <div class="form-inline row">
+                            <label for="codeS" class="col-form-label col-lg-5">
+                                Code Sociaux Professionnelles
+                            </label>
+                            <input type="text" name="codeS" id="codeS" class="form-control col-lg-3" disabled>
+                            <button class="btn btn-secondary">
+                                +
+                            </button>
+                        </div>
+                        <br><br>
+                        <!-- Sexe-->
+                        <div class="form-inline row">
+                            <label for="" class="col-lg-5">
+                                Sexe:
+                            </label>
+                            <div class="col-lg-3">
+                                <div class="form-check form-radio-inline">
+                                    <input [(ngModel)]="porteur.sexe" #sexe="ngModel" class="form-check-input" type="radio" value="M" id="inlineRadio1" name="sexe">
+                                    <label class="form-check-label" for="nlineRadio1"> M</label>
 
-                    <!-- CIN -->
-                    <div class="form-inline row">
-                        <label for="CIN" class="col-form-label text-left col-lg-5">Code d'identit� nationale
-                        </label>
-                        <input
-                            [(ngModel)]="porteur.cin" 
-                            #cin="ngModel"
-                            type="text" name="CIN" class="form-control col-lg-5">
-                    </div>
+                                    <div class="offset-lg-1">
+                                    </div>
+                                    <input [(ngModel)]="porteur.sexe" #sexe="ngModel" class="form-check-input" type="radio" id="Mlle" value="Mlle" name="sexe">
+                                    <label class="form-check-label" for="Mlle"> Mlle </label>
+                                    <div class="offset-lg-1">
+                                    </div>
+                                    <input [(ngModel)]="porteur.sexe" #sexe="ngModel" class="form-check-input" type="radio" id="Mme" value="Mme" name="sexe">
+                                    <label class="form-check-label" for="Mme">Mme</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br><br>
+                        <!-- Situation Familiale -->
+                        <div class="form-inline row">
+                            <label for="Situation" class="col-lg-5">
+                                Situation Familiale:
+                            </label>
+                            <div class="col-lg-6">
+                                <div class="form-check form-check-inline">
 
-                    <!-- Code Sociaux professionelle -->
-                    <div class="form-inline row">
-                        <label for="codeS" class="col-form-label col-lg-5">Code Sociaux Professionnelles </label>
-                        <input type="text" name="codeS" class="form-control col-lg-3" disabled>
-                        <button class="btn btn-secondary">+</button>
-                    </div>
-                    <br><br>
-                    <!-- Sexe -->
-                    <div class="form-inline row">
-                        <label for="" class="col-lg-5"> Sexe: </label>
-                        <div class="col-lg-3">
-                            <div class="form-check form-check-inline">
-                                <input
-                                    [(ngModel)]="porteur.sex" 
-                                    #sex="ngModel"
-                                    value="M"
-                                    class="form-check-input" type="radio" id="inlineCheckbox1" name="sexe">
-                                <label class="form-check-label" for="sexe">M</label>
-                                
-                                <div class="offset-lg-1"></div>
-                                <input
-                                    [(ngModel)]="porteur.sex" 
-                                    #sex="ngModel"
-                                    value="Mile"
-                                    class="form-check-input" type="radio" id="inlineCheckbox2" name="sexe">
-                                <label class="form-check-label" for="sexe">Mlle</label>
-                                <div class="offset-lg-1"></div>
+                                    <input [(ngModel)]="porteur.situationFamiliale" #situationFamiliale="ngModel" class="form-check-input" type="radio" value="Célibataire" id="Situation1" name="situationFamiliale">
+                                    <label class="form-check-label" for="Situation">Célibataire</label>
 
-                                <input
-                                    [(ngModel)]="porteur.sex" 
-                                    #sex="ngModel"
-                                    value="Mme"
-                                    class="form-check-input" type="radio" id="inlineCheckbox3" name="sexe">
-                                <label class="form-check-label" for="sexe">Mme</label>
+                                    <div class="offset-lg-1"></div>
+                                    <input [(ngModel)]="porteur.situationFamiliale" #situationFamiliale="ngModel" class="form-check-input" type="radio" value="Marrié" id="Situation2" name="situationFamiliale">
+                                    <label class="form-check-label" for="Situation">Marrié<span class="small">(e)</span></label>
+
+                                    <div class="offset-lg-1"></div>
+
+                                    <input [(ngModel)]="porteur.situationFamiliale" #situationFamiliale="ngModel" class="form-check-input" type="radio" value="Divorcé" id="Situation3" name="situationFamiliale">
+                                    <label class="form-check-label" for="Situation3">Divorcé<span class="small">(e)</span></label>
+
+                                    <div class="offset-lg-1"></div>
+
+                                    <input [(ngModel)]="porteur.situationFamiliale" #situationFamiliale="ngModel" class="form-check-input" type="radio" id="Situation4" value="Veuf" name="situationFamiliale">
+                                    <label class="form-check-label" for="Situation4">Veuf<span class="small">(ve)</span></label>
+
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <br><br><br>
-                    <!-- Situation Familiale -->
+                </div>
+
+            </div>
+            <div class="col-lg-5">
+                <div class="card-header">
+                    Plus d'information sur le porteur
+                </div>
+                <div class="card-body">
                     <div class="form-inline row">
-                        <label for="Situation" class="col-lg-5"> Situation Familiale: </label>
-                        <div class="col-lg-6">
-                            <div class="form-check form-check-inline">
-
-                                <input
-                                    [(ngModel)]="porteur.situationFamiliale" 
-                                    #sex="ngModel"
-                                    value="Célibataire"
-                                    class="form-check-input" type="radio" id="Situation1" name="Situation">
-                                <label class="form-check-label" for="Situation">Célibataire</label>
-                                <div class="offset-lg-1"></div>
-                                
-                                <input
-                                    [(ngModel)]="porteur.situationFamiliale" 
-                                    #sex="ngModel"
-                                    value="Marrié"
-                                    class="form-check-input" type="radio" id="Situation2" name="Situation">
-                                <label class="form-check-label" for="Situation">Marrié<span
-                                        class="small">(e)</span></label>
-                                <div class="offset-lg-1"></div>
-                                
-                                <input
-                                    [(ngModel)]="porteur.situationFamiliale" 
-                                    #sex="ngModel"
-                                    value="Divorcé"
-                                    class="form-check-input" type="radio" id="Situation3" name="Situation">
-                                <label class="form-check-label" for="Situation3">Divorcé<span
-                                        class="small">(e)</span></label>
-                                <div class="offset-lg-1"></div>
-
-                                <input
-                                    [(ngModel)]="porteur.situationFamiliale" 
-                                    #sex="ngModel"
-                                    value="Veuf"
-                                    class="form-check-input" type="radio" id="Situation4" name="Situation">
-                                <label class="form-check-label" for="Situation4">Veuf<span
-                                        class="small">(ve)</span></label>
-                            </div>
-                        </div>
+                        <label for="date" class="control-label col-lg-5"> Date de Naissance </label>
+                        <input [(ngModel)]="porteur.dateNaissance" #dateNaissance="ngModel" type="date" class="form-control  col-lg-5" id="date" name="dateNaissance">
                     </div>
-                </form>
+
+                    <!-- Adresse-->
+                    <div class="form-inline row">
+                        <label for="adresse" class="col-form-label col-lg-5">Adresse</label>
+                        <input [(ngModel)]="porteur.address" #address="ngModel" type="text" class="form-control  col-lg-5" name="address">
+                    </div>
+
+                    <!-- Code Postale-->
+                    <div class="form-inline row">
+                        <label for="codeP" class="col-form-label col-lg-5">Code postale </label>
+                        <input [(ngModel)]="porteur.codePostale" #codePostale="ngModel" type="text" class="form-control col-lg-5" name="codeP" id="codePostale">
+                    </div>
+
+                    <!-- Ville-->
+                    <div class="form-inline row">
+                        <label for="ville" class="col-form-label col-lg-5">Ville</label>
+                        <input [(ngModel)]="porteur.ville.label" #label="ngModel" type="text" class="form-control col-lg-3" name="label" id="ville" disabled>
+                        <a [routerLink]="['/porteur/ville']" class="btn btn-secondary">+</a>
+
+                    </div>
+
+                    <!--Téléphone-->
+                    <div class="form-inline row">
+                        <label for="tel" class="col-form-label col-lg-5">Téléphone </label>
+                        <input [(ngModel)]="porteur.telephone" #telephone="ngModel" type="text" class="form-control col-lg-3" name="telephone">
+                    </div>
+
+
+                    <!--Email-->
+                    <div class="form-inline row">
+                        <label for="email" class="col-form-label col-lg-5">Email</label>
+                        <input [(ngModel)]="porteur.email" #email="ngModel" type="text" class="form-control col-lg-5" name="email">
+                    </div>
+
+                    <!--Banque-->
+                    <div class="form-inline row">
+                        <label for="Banque" class="col-form-label col-lg-5"> Banque</label>
+                        <input [(ngModel)]="porteur.banque.code" #code="ngModel" type="text" class="form-control col-lg-3" name="code" id="Banque" disabled>
+                        <a [routerLink]="['/porteur/banque']" class="btn btn-secondary">+</a>
+                    </div>
+
+                    <!--Agence-->
+                    <div class="form-inline row">
+                        <label for="Agence" class="col-form-label col-lg-5">Agence</label>
+                        <input [(ngModel)]="porteur.agence.code_agence" #code_agence="ngModel" type="text" class="form-control col-lg-3" name="code_agence" disabled>
+                        <a [routerLink]="['/porteur/agence']" class="btn btn-secondary">+</a>
+                    </div>
+
+                    <!--Catégorie-->
+                    <div class="form-inline row">
+                        <label for="Catégorie" class="col-form-label col-lg-5">Catégorie</label>
+                        <input [(ngModel)]="porteur.categorie" #categorie="ngModel" type="text" class="form-control col-lg-3" name="categorie" id="Catégorie">
+                    </div>
+                </div>
             </div>
         </div>
-
+        <!--Fin-->
     </div>
-    <div class="col-lg-5">
-        <div class="card-header">Plus d'information sur le porteur</div>
-        <div class="card-body">
-            <form action="">
-                <div class="form-inline row">
-                    <label for="date" class="col-form-label col-lg-5">Date de Naissance </label>
-                    <input type="date" class="form-control  col-lg-5" name="date">
-                </div>
-
-                <!-- Adresse -->
-                <div class="form-inline row">
-                    <label for="adresse" class="col-form-label col-lg-5">Adresse </label>
-                    <input type="text" class="form-control  col-lg-5" name="adresse">
-                </div>
-
-                <!-- Code Postale -->
-                <div class="form-inline row">
-                    <label for="codeP" class="col-form-label col-lg-5">Code postale </label>
-                    <input type="text" class="form-control col-lg-5" name="codeP">
-                </div>
-
-                <!-- Code Postale -->
-                <div class="form-inline row">
-                    <label for="codeP" class="col-form-label col-lg-5">Code postale </label>
-                    <input type="text" class="form-control col-lg-5" name="codeP">
-                </div>
-
-                 <!-- Ville -->
-                <div class="form-inline row">
-                    <label for="ville" class="col-form-label col-lg-5">Ville </label>
-                    <input type="text" class="form-control col-lg-3" name="ville" disabled>
-                    <button class=" btn btn-secondary">+</button>
-                </div>
-
-                <!-- Téléphone -->
-                <div class="form-inline row">
-                    <label for="tel" class="col-form-label col-lg-5"> Téléphone </label>
-                    <input type="text" class="form-control col-lg-3" name="tel">
-                </div>
-
-              <!-- Fax -->
-                <div class="form-inline row">
-                    <label for="Fax" class="col-form-label col-lg-5">Code postale </label>
-                    <input type="text" class="form-control col-lg-3" name="Fax">
-                </div>
-
-                <!-- Email -->
-                <div class="form-inline row">
-                    <label for="email" class="col-form-label col-lg-5">Email </label>
-                    <input type="text" class="form-control col-lg-5" name="codeP">
-                </div>
-
-                <!-- Banque -->
-                <div class="form-inline row">
-                    <label for="Banque" class="col-form-label col-lg-5">Banque</label>
-                    <input type="text" class="form-control col-lg-3" name="Banque" disabled>
-                    <button class="btn btn-secondary">+</button>
-                </div>
-
-                <!-- Agence --> 
-                <div class="form-inline row">
-                    <label for="Agence" class="col-form-label col-lg-5">Agence</label>
-                    <input type="text" class="form-control col-lg-3" name="Agence" disabled>
-                    <button class="btn btn-secondary">+</button>
-                </div>
-
-                <!-- Catégorie -->
-                <div class="form-inline row">
-                    <label for="Catégorie" class="col-form-label col-lg-5">Catégorie</label>
-                    <input type="text" class="form-control col-lg-3" name="Catégorie">
-                </div>
-            </form>
+    <div class="card-footer">
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-secondary">
+                Ajouter
+            </button>
+            <button class="btn btn-secondary">
+                Annuler
+            </button>
         </div>
     </div>
-</div>
-<div class="card-footer">
-<div class="d-flex justify-content-center">
-    <button type="submit" class="btn btn-secondary">Ajouter</button>
-    <button class="btn btn-secondary">Annuler</button>
-</div>
-</div>
+</form>

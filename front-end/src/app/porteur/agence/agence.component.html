@@ -17,17 +17,19 @@
             <thead class="thead-light">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Bin</th>
-                    <th scope="col">Client</th>
+                    <th scope="col">Code agence</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Addres</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let compte of comptes">
+                <tr *ngFor="let agence of agences">
                     <th scope="row">2</th>
-                    <td>{{ compte.bin }}</td>
-                    <td>{{ compte.client }} </td>
-                    <td><button class="btn btn-success" (click)="onCompte(compte)">Selectionner</button> </td>
+                    <td>{{ agence.code_agence }}</td>
+                    <td>{{ agence.nom }} </td>
+                    <td>{{ agence.address }} </td>
+                    <td><button class="btn btn-success" (click)="onAgence(agence)">Selectionner</button> </td>
                 </tr>
 
             </tbody>

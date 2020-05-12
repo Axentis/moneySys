@@ -1,0 +1,94 @@
+<!--Header-->
+<div 
+    class="card-header a panel1 marg ">
+    Création d'une nouvelle type de carte
+    <button 
+      type="button" 
+      class="close" 
+      aria-label="Close">
+      <a routerLink="/typeCarte">
+        <span 
+            aria-hidden="true">
+            &times;
+        </span>
+      </a>
+    </button>
+</div>
+
+<!--Body-->
+<div 
+    class="panel-body panel1 ">
+    <form 
+        #form="ngForm" 
+        (ngSubmit)="submit()">
+        <!--Inputs-->
+        <div 
+            class="col-sm-11 marg">
+            <div class="col-sm-12 size">
+                <div 
+                    class="card-panel col-sm-8 offset-sm-2 panel1 ">
+                    <!--Code type-->
+                    <div 
+                        class="form-inline row first">
+                        <label 
+                            for="code" 
+                            class="text-left col-lg-5">
+                            Code type
+                        </label>
+                        <input 
+                            type="text" 
+                            id="code"
+                            name="code" 
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [ngModel]="type.code_type | value" 
+                            (ngModelChange)="type.code_type=$event">          
+                    </div>
+                    <!--Libelle-->
+                    <div 
+                        class="form-inline row last">
+                        <label 
+                            for="libelle" 
+                            class="text-left col-lg-5">
+                            libelle 
+                        </label>
+                        <input 
+                            type="text" 
+                            id="libelle"
+                            name="libelle" 
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [(ngModel)]="type.type">
+                    </div>                
+                </div>
+            </div>
+        </div>
+        
+        <!--Button-->
+        <div 
+            class="d-flex justify-content-center ">
+            <button 
+                *ngIf="etat"
+                type="submit"
+                (click)="add()"
+                class="btn btn-secondary "
+                >
+                Ajouter
+            </button>
+            <button 
+                *ngIf="!etat"
+                type="submit"
+                class="btn btn-secondary "
+                routerLink="/typeCarte"
+                >
+                Modifier
+            </button>
+            <button 
+                class="btn btn-secondary "
+                routerLink="/typeCarte"
+                >
+                Annuler
+            </button>
+        </div>
+    </form>
+</div>

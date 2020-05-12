@@ -1,0 +1,26 @@
+.form-control{
+    margin-right: 10px;
+}
+.margin{
+    margin: 62px 0px 70px 0px;
+}
+.body{
+    border: 2px solid lightgray;}
+
+.form-inline,.table{
+    margin-top: 8px;
+}
+.btn-success{
+    margin: 15px 0px 15px 0px;
+}
+/*margin pour premier bloc*/
+.first{
+    margin-top: 20px;
+}
+.btn-warning{
+    margin-right: 5px;
+}
+th,td{
+    text-align: center;
+}
+

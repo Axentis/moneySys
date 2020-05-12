@@ -1,0 +1,61 @@
+<!--Tableau & Pagination-->
+<div 
+    style="text-align:center"
+    class=" body last">
+    <!--Tableau-->
+    <div 
+        class="col-lg-12 container  tab">       
+        <table 
+            class="table table-hover table-bordered">
+            <thead 
+                class="thead-light">
+                <tr>
+                    <!--Num de carte-->   
+                    <th>
+                        Num 
+                    </th>
+                    <!--BIN-->
+                    <th 
+                        scope="col">
+                        BIN
+                    </th>
+                    <!--Etat de carte-->
+                    <th 
+                        scope="col">
+                        Etat
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr 
+                    *ngFor="let c of carte, index as i ">
+                    <!--Num de carte-->
+                    <th>
+                        {{c.Num}}
+                    </th>
+                    <!--BIN-->
+                    <td>
+                        {{ c.comptes[0].bin }}
+                    </td>
+                    <!--Renouvelement du carte-->
+                    <td>
+                        {{ c.info.etat }}
+                    </td>
+                    <!--Boutton d'opposer-->
+                    <td>
+                        <button 
+                            class="btn selection" 
+                            (click)="opposer(i)" >
+                            Opposer
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   
+    <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> -->
+    <!--Pagination-->
+    <pagination></pagination>
+
+</div>

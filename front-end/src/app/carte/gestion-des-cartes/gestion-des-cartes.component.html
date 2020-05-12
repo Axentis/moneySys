@@ -1,1 +1,153 @@
-<p>gestion-des-cartes works!</p>
+<!--Inputs de Recherches-->
+<div 
+    class="body col-lg-12 first">
+    <div 
+        class="col-lg-8 offset-lg-1 margin ">  
+        <form 
+            class="form">
+            <!--Nom du porteur-->
+            <div 
+                class="form-inline">
+                <label 
+                    for="Porteur" 
+                    class="text-left col-lg-5">
+                    Nom du porteur 
+                </label>
+                <input 
+                    type="text" 
+                    id="Porteur"
+                    pattern="[a-zA-Z]+"
+                    name="Porteur" 
+                    class="form-control is-valid col-lg-5">
+                <button 
+                    class="btn btn-success">
+                    Chercher
+                </button>
+            </div>
+            <!--Num de carte-->
+            <div 
+                class="form-inline">
+                <label 
+                    for="carte" 
+                    class="text-left col-lg-5">
+                    Num de carte  
+                </label>
+                <input 
+                    type="text" 
+                    id="carte"
+                    name="carte" 
+                    class="form-control is-valid col-lg-5">
+                <button 
+                    class="btn btn-success">
+                    Chercher
+                </button>
+            </div>
+            <!--Num de compte-->
+            <div 
+                class="form-inline">
+                <label 
+                    for="compte" 
+                    class="text-left col-lg-5">
+                    Num de compte 
+                </label>
+                <input 
+                    type="text" 
+                    id="compte"
+                    name="compte"
+                    ngModel 
+                    class="form-control is-valid col-lg-5">
+                <button 
+                    class="btn btn-success">
+                    Chercher
+                </button>
+            </div>
+        </form>
+    </div>
+</div> 
+
+<!--Tableau & Pagination-->
+<div 
+    class="body">
+    <!--Tableu-->
+    <div 
+        class="col-lg-12 ">       
+        <table 
+            class="table table-hover table-bordered table-striped">
+            <thead 
+                class="thead-light">
+                <tr>
+                    <!--Num de carte-->
+                    <th 
+                        scope="col">
+                        Num de carte
+                    </th>
+                    <!--Nom du porteur-->
+                    <th 
+                        scope="col">
+                        Nom du porteur
+                    </th>
+                    <!--Compte-->
+                    <th 
+                        scope="col">
+                        Compte
+                    </th>
+                    <!--Type de carte-->
+                    <th 
+                        scope="col">
+                        Type
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr 
+                    *ngFor="let carte of cartes;index as i">
+                    <!--Num de carte-->
+                    <td 
+                        scope="row">
+                        {{ carte.Num }}
+                    </td>
+                    <!--Nom du porteur-->
+                    <td>
+                        {{carte.porteur.nom}}
+                    </td>
+                    <!--Compte-->
+                    <td>
+                        {{carte.comptes[0].client}}
+                    </td>
+                    <!--Type de carte-->
+                    <td>
+                        {{carte.info.type.type}}
+                    </td>
+                    <!--Bouttons-->
+                    <td>
+                        <!--Boutton de modification-->
+                        <button 
+                            class="btn btn-warning" 
+                            (click)="Edit(carte)" >
+                            Modifier
+                        </button>
+                        <!--Boutton de Suppression-->
+                        <button 
+                            class="btn btn-danger" 
+                            (click)="remove(i)" >
+                            Supprimer
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--Pagination-->
+    <pagination></pagination>
+</div>
+    
+<!--Boutton d'ajout--> 
+<div
+    class="d-flex justify-content-center marg">
+    <button 
+        class="btn btn-secondary last"
+        (click)="addCarte()">
+        Ajouter une carte 
+    </button>
+</div>

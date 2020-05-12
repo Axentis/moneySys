@@ -1,0 +1,95 @@
+<!--Input de recherche-->
+<div 
+    class="body col-sm-12 first">
+    <div 
+        class="col-sm-8 offset-lg-1 margin ">  
+        <form 
+            class="form">   
+            <div 
+                class="form-inline">
+                <label 
+                    for="code" 
+                    class="text-left col-lg-5">
+                    Num de carte
+                </label>
+                <input 
+                    type="text" 
+                    id="code"
+                    name="code"
+                    ngModel 
+                    class="form-control is-valid col-lg-5">
+                <button 
+                    class="btn btn-success">
+                    Chercher
+                </button>
+            </div>
+        </form>
+    </div>
+</div>  
+
+<!--Tableau & Pagination-->
+<div 
+    class="body">
+    <!--Table-->
+    <div 
+        class="col-lg-12 ">       
+        <table 
+            class="table table-hover table-bordered table-striped">
+            <thead 
+                class="thead-light">
+                <tr>
+                    <!--Num de carte-->
+                    <th 
+                        scope="col">
+                        Num de carte
+                    </th>
+                    <!--BIN-->
+                    <th 
+                        scope="col">
+                        BIN
+                    </th>
+                    <!--Etat de carte-->
+                    <th 
+                        scope="col">
+                        Etat de carte
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of carte;index as i">
+                    <!--Num de carte-->
+                    <th 
+                        scope="row">
+                        {{c.Num}}
+                    </th>
+                    <!--BIN-->
+                    <td>
+                        {{c.comptes[0].bin}}
+                    </td>
+                    <!--Etat de carte-->
+                    <td>
+                        {{c.info.etat}}
+                    </td>
+                    <!--<td>
+                        <button 
+                            class="btn btn-warning" 
+                            (click)="Edit(c)" >
+                            Modifier
+                        </button>
+                        <button 
+                            class="btn btn-danger" 
+                            (click)="remove(i)" >
+                            Supprimer
+                        </button>
+                    </td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--Pagination-->
+    <pagination></pagination>
+    
+</div> 
+    
+

@@ -1,311 +1,399 @@
+<!--Header-->
 <div 
-    class="card-header ">
+    class="card-header  a panel1 size ">
     Création d'une nouvelle carte sur mouvement
     <button 
       type="button" 
       class="close" 
       aria-label="Close">
-      <span a
-        ria-hidden="true">
-        &times;
-      </span>
+      <a routerLink="/gestionCarte">
+        <span a
+            ria-hidden="true"
+            style="color:maroon;"
+            >
+            &times;
+        </span>
+      </a>
     </button>
-  </div>
-<form>
-    <div 
-        class="col-lg-7 marg">
-    <div 
-        class="card-header a container panel1">
-        Informations des porteurs
-    </div>
-    <div 
-        class=
-        "card-panel container panel1">
-        <!--Porteur-->
+</div>
+
+<!--Body-->
+<div 
+    class="panel-body panel1 size ">
+    <form #form="ngForm" (ngSubmit)="submit(form)">
+        <!--Informations des porteurs-->
         <div 
-            class="form-inline row first">
-            <label 
-                for="Porteur" 
-                class="text-left col-lg-5">
-                Porteurs 
-            </label>
-            <input 
-                type="text" 
-                id="Porteur"
-                name="Porteur" 
-                class="form-control col-lg-5" 
-                disabled>
-            <button 
-                class="btn btn-secondary">
-                ...
-            </button>
-        </div>
-        <!--Compte primaire-->
-        <div 
-            class="form-inline row">
-            <label 
-                for="primaire" 
-                class="col-form-label col-lg-5 text-left">
-                Compte primaire
-            </label>
-            <input 
-                type="text" 
-                name="primaire"
-                id="primaire" 
-                class="form-control col-lg-5"
-                disabled>
-        </div>
-        <!--Deuxième-->
-        <div 
-            class="form-inline row">
-            <label 
-                for="deuxième" 
-                class="col-form-label col-lg-5 text-left">
-                Deuxième
-            </label>
-            <input 
-                type="text" 
-                name="deuxième"
-                id="deuxième" 
-                class="form-control col-lg-5">
-        </div>
-        <!--Banque-->
-        <div 
-            class="form-inline row">
-            <label 
-                for="banque" 
-                class="col-form-label col-lg-5 text-left">
-                Banque
-            </label>
-            <input 
-                type="text" 
-                name="banque"
-                id="banque" 
-                class="form-control col-lg-3"
-                disabled>
-        </div>
-        <!--Agence-->
-        <div 
-            class="form-inline row last">
-            <label 
-                for="agence" 
-                class="col-form-label col-lg-5 text-left">
-                Agence
-            </label>
-            <input 
-                type="text" 
-                name="agence"
-                id="agence"
-                class="form-control col-lg-3"
-                disabled>
-        </div>
-    </div>
-    </div>
-    <div 
-        class="container">
-        <div 
-            class="card-header a">
-            Information de la carte
-        </div>
-        <div 
-            class="card-panel">
+            class="col-lg-11 marg">
             <div 
-                class="row">
+                class="card-header a panel1">
+                Informations des porteurs
+            </div>
+            <div class="col-lg-12 panel1">
                 <div 
-                    class="col-lg-6">
-                    <!--BIN-->
-                    <div 
-                        class="form-inline row first">
-                        <label 
-                            for="BIN" 
-                            class="text-left col-lg-4">
-                            BIN 
-                        </label>
-                        <input 
-                            type="text" 
-                            id="BIN"
-                            name="BIN" 
-                            class="form-control col-lg-6" 
-                            disabled>
-                        <button 
-                            class="btn btn-secondary">
-                            ...
-                        </button>
-                    </div>
-                    <!--Type de carte-->
-                    <div 
-                        class="form-inline row">
-                        <label 
-                            for="BIN" 
-                            class="text-left col-lg-4">
-                            Type de carte  
-                        </label>
-                        <input 
-                            type="text" 
-                            id="type"
-                            name="type" 
-                            class="form-control col-lg-6" 
-                            disabled>
-                    </div>
-                    <!--Code tarif-->
-                    <div 
-                        class="form-inline row">
-                        <label 
-                            for="BIN" 
-                            class="text-left col-lg-4">
-                            Code tarif   
-                        </label>
-                        <input 
-                            type="text" 
-                            id="tarif"
-                            name="tarif" 
-                            class="form-control col-lg-4" 
-                            disabled>
-                    </div>
-                    <!--etat carte-->
-                    <div 
-                        class="form-inline row">
-                        <label 
-                            for="etat" 
-                            class="text-left col-lg-4">
-                            Etat de carte  
-                        </label>
-                        <input 
-                            type="text" 
-                            id="etat"
-                            name="etat" 
-                            class="form-control col-lg-4" 
-                            disabled>
-                    </div>
-                    <!--Num de carte-->
-                    <div 
-                        class="form-inline row last">
-                        <label 
-                            for="Num" 
-                            class="text-left col-lg-4">
-                            Num de carte  
-                        </label>
-                        <input 
-                            type="num" 
-                            id="num"
-                            name="num" 
-                            class="form-control col-lg-6" 
-                            required
-                            ngModel
-                            #num="ngModel">
-                        <div 
-                            class="alert alert-danger row col-lg-6 offset-lg-4"
-                            *ngIf="num.touched && num.invalid">
-                            ce champ est obligatoires!
-                        </div>
-                    </div>
+                class=
+                "card-panel col-lg-9 ">
+                <!--Porteur-->
+                <div 
+                    class="form-inline row first">
+                    <label 
+                        for="Porteur" 
+                        class="text-left col-lg-5">
+                        Porteurs 
+                    </label>
+                    <input 
+                        type="text" 
+                        id="Porteur"
+                        name="Porteur" 
+                        class="form-control col-lg-5" 
+                        ngModel
+                        [(ngModel)]="carte.porteur.nom"
+                        disabled>
+                    <button 
+                        class="btn btn-secondary"
+                        routerLink="/formCartePorteur">
+                        ...
+                    </button>
                 </div>
-                <div class="col-lg-6 ">
+                <!--Compte primaire-->
+                <div 
+                    class="form-inline row">
+                    <label 
+                        for="primaire" 
+                        class="col-form-label col-lg-5 text-left">
+                        Compte primaire
+                    </label>
+                    <input 
+                        type="text" 
+                        name="primaire"
+                        id="primaire" 
+                        class="form-control col-lg-5"
+                        ngModel
+                        [(ngModel)]="carte.porteur.compte[0].comptePrimare"
+                        disabled>
+                </div>
+                <!--Deuxième-->
+                <div 
+                    class="form-inline row">
+                    <label 
+                        for="deuxième" 
+                        class="col-form-label col-lg-5 text-left">
+                        Deuxième
+                    </label>
+                    <input 
+                        type="text" 
+                        name="deuxième"
+                        id="deuxième" 
+                        required
+                        ngModel
+                        class="form-control col-lg-5">
+                </div>
+                <!--Banque-->
+                <div 
+                    class="form-inline row">
+                    <label 
+                        for="banque" 
+                        class="col-form-label col-lg-5 text-left">
+                        Banque
+                    </label>
+                    <input 
+                        type="text" 
+                        name="banque"
+                        id="banque"
+                        ngModel 
+                        [(ngModel)]="carte.porteur.banque.nom"
+                        class="form-control col-lg-3"
+                        disabled>
+                </div>
+                <!--Agence-->
+                <div 
+                    class="form-inline row last">
+                    <label 
+                        for="agence" 
+                        class="col-form-label col-lg-5 text-left">
+                        Agence
+                    </label>
+                    <input 
+                        type="text" 
+                        name="agence"
+                        id="agence"
+                        ngModel
+                        [(ngModel)]="carte.porteur.agence.nom"
+                        class="form-control col-lg-3"
+                        disabled>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--Information de la carte-->
+        <div 
+            class="col-lg-11 marg ">
+            <div 
+                class="card-header a panel2">
+                Information de la carte
+            </div>
+            <div 
+                class="card-panel panel2">
+                <div 
+                    class="row">
                     <div 
-                        class="panel3 first">
+                        class="col-lg-6">
+                        <!--BIN-->
                         <div 
-                            class="card-header">
-                            Renouvelement de la carte
+                            class="form-inline row first">
+                            <label 
+                                for="BIN" 
+                                class="text-left col-lg-4">
+                                BIN 
+                            </label>
+                            <input 
+                                type="text" 
+                                id="BIN"
+                                name="BIN" 
+                                class="form-control col-lg-6" 
+                                ngModel
+                                [ngModel]="carte.info.BIN | value" 
+                                (ngModelChange)="carte.info.BIN=$event"
+                                disabled>
+                            <button 
+                                class="btn btn-secondary"
+                                (click)="addCarte()">
+                                ...
+                            </button>
                         </div>
+                        <!--Type de carte-->
                         <div 
-                            class="panel-body">
+                            class="form-inline row">
+                            <label 
+                                for="type" 
+                                class="text-left col-lg-4">
+                                Type de carte  
+                            </label>
+                            <input 
+                                type="text" 
+                                id="type"
+                                name="type" 
+                                ngModel
+                                [(ngModel)]="carte.info.type.type"
+                                class="form-control col-lg-6" 
+                                disabled>
+                        </div>
+                        <!--Code tarif-->
+                        <div 
+                            class="form-inline row">
+                            <label 
+                                for="tarif" 
+                                class="text-left col-lg-4">
+                                Code tarif   
+                            </label>
+                            <input 
+                                type="text" 
+                                id="tarif"
+                                name="tarif" 
+                                ngModel
+                                [ngModel]="carte.info.tarif.code_tarif | value" 
+                                (ngModelChange)="carte.info.code_tarif=$event"
+                                class="form-control col-lg-4" 
+                                disabled>
+                        </div>
+                        <!--etat carte-->
+                        <div 
+                            class="form-inline row">
+                            <label 
+                                for="etat" 
+                                class="text-left col-lg-4">
+                                Etat de carte  
+                            </label>
+                            <input 
+                                type="text" 
+                                id="etat"
+                                name="etat" 
+                                class="form-control col-lg-4" 
+                                ngModel
+                                [(ngModel)]="carte.info.etat"
+                                disabled>
+                        </div>
+                        <!--Num de carte-->
+                        <div 
+                            class="form-inline row last">
+                            <label 
+                                for="Num" 
+                                class="text-left col-lg-4">
+                                Num de carte  
+                            </label>
+                            <input 
+                                type="num" 
+                                id="Num"
+                                name="num" 
+                                class="form-control col-lg-6" 
+                                required
+                                ngModel
+                                [ngModel]="carte.Num| value" 
+                                (ngModelChange)="carte.Num=$event"
+                                #num="ngModel">
                             <div 
-                                class="form-inline row">
+                                class="alert alert-danger row col-lg-6 offset-lg-4"
+                                *ngIf="num.touched && num.invalid">
+                                ce champ est obligatoires!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ">
+                        <!--Renouvelement des cartes-->
+                        <div 
+                            class="panel3 first">
+                            <div 
+                                class="card-header">
+                                Renouvelement de la carte
+                            </div>
+                            <div 
+                                class="panel-body">
                                 <div 
-                                    class="container renouvlable">
+                                    class="form-inline row">
                                     <div 
-                                    class="form-check form-check-inline">
-                                    <input 
-                                        class="form-check-input" 
-                                        type="radio" 
-                                        id="renouvelable" 
-                                        name="radio"
-                                        checked>
-                                    <label 
-                                        class="form-check-label" 
-                                        for="renouvelable">
-                                        Renouvelable
-                                    </label>
-                                    <div 
-                                        class="offset-lg-1">
-                                    </div>
-                                    <input 
-                                        class="form-check-input" 
-                                        type="radio" 
-                                        id="non" 
-                                        name="radio">
-                                    <label 
-                                        class="form-check-label" 
-                                        for="non">
-                                        Non renouvelable
-                                    </label>
-                                    <div 
-                                        class="offset-lg-1">
-                                    </div>
-                                    <form #f="ngForm" action="" class="form-check-inline">
-                                        <input 
+                                        class="container renouvlable">
+                                        <div 
+                                        class="form-check form-check-inline">
+                                        <a (click)="renouvlable()">
+                                            <input 
                                             class="form-check-input" 
                                             type="radio" 
-                                            id="définir" 
+                                            id="renouvelable" 
                                             name="radio"
-                                            ngModel>
+                                            [checked]="carte.renouvelement=='renouvelable'">
+                                        </a>
                                         <label 
                                             class="form-check-label" 
-                                            for="définir">
-                                            A définir
+                                            for="renouvelable">
+                                            Renouvelable
                                         </label>
-                                    </form>
+                                        <div 
+                                            class="offset-lg-1">
+                                        </div>
+                                        <a (click)="nonRenouvelable()">
+                                            <input 
+                                                class="form-check-input" 
+                                                type="radio" 
+                                                id="non" 
+                                                name="radio"
+                                                [checked]="carte.renouvelement=='non renouvelable'">
+                                        </a>
+                                        <label 
+                                            class="form-check-label" 
+                                            for="non">
+                                            Non renouvelable
+                                        </label>
+                                        <div 
+                                            class="offset-lg-1">
+                                        </div>
+                                            <a (click)="definir()">
+                                                <input 
+                                                class="form-check-input" 
+                                                type="radio" 
+                                                id="définir" 
+                                                name="radio"
+                                                #def="ngModel"
+                                                ngModel
+                                                [checked]="carte.renouvelement=='à définir'">
+                                            </a>
+                                            <label 
+                                                class="form-check-label" 
+                                                for="définir">
+                                                A définir
+                                            </label>
+                                            
+                                    </div>
+                                    </div>
                                 </div>
-                                </div>
+                                
                             </div>
+                           
+                        </div>
+                        <!--Date début-->
+                        <div 
+                            class="form-inline row date">
+                            <label 
+                                for="début" 
+                                class="control-label col-lg-5">
+                                Date de début 
+                            </label>
+                            <ejs-datepicker 
+                                id='datepicker' 
+                                placeholder='Select a date'
+                                id="début"
+                                name="début"
+                                required
+                                [disabled]="carte.renouvelement!='à définir'"
+                                ngModel
+                                [(ngModel)]="carte.dateDeb"
+                                #debut="ngModel">
+                            </ejs-datepicker>
                             
                         </div>
-                       
-                    </div>
-                    <!--Date début-->
-                    <div 
-                        class="form-inline row date">
-                        <label 
-                            for="début" 
-                            class="control-label col-lg-5">
-                            Date de début 
-                        </label>
-                        <input 
-                            type="date" 
-                            class="form-control  col-lg-5" 
-                            id="début"
-                            name="début"
-                            [disabled]="!f.dirty"
-                            ngModel
-                            #debut="ngModel">
-                    </div>
-                    <!--Date Fin-->
-                    <div 
-                        class="form-inline row date">
-                        <label 
-                            for="expire" 
-                            class="control-label col-lg-5">
-                            Date d'expiration 
-                        </label>
-                        <input 
-                            type="date" 
-                            class="form-control  col-lg-5" 
-                            id="expire"
-                            name="expire"
-                            [disabled]="!f.dirty"
-                            ngModel
-                            #expire="ngModel"
-                            (change)="log(expire)">
-                    </div> 
-                    <div 
-                        class="alert alert-danger"
-                        *ngIf="expire.value < debut.value">
-                        Essayer de prendre votre attention votre date de début 
-                        est plus de date d'expiration>      
+                        <!--Date Fin-->
+                        <div 
+                            class="form-inline row date">
+                            <label 
+                                for="expire" 
+                                class="control-label col-lg-5">
+                                Date d'expiration 
+                            </label>
+                            <ejs-datepicker 
+                                id='datepicker' 
+                                placeholder='Select a date'
+                                id="expire"
+                                name="expire"
+                                [disabled]="carte.renouvelement!='à définir'"
+                                ngModel
+                                [(ngModel)]="carte.dateFin"
+                                required
+                                #expire="ngModel"
+                                >
+                            </ejs-datepicker>
+                            
+                        
+                        
+                        
+                        </div> 
+                        <!--Alert date-->
+                        <div 
+                            class="alert alert-danger col-lg-5 offset-lg-5"
+                            *ngIf="expire.value < debut.value && expire.valid">
+                            Essayer de prendre votre attention votre date de début 
+                            est plus grand de date d'expiration.      
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</form>
-<p>{{f.dirty}}</p>
+
+        <!--Button-->
+        <div 
+            class="d-flex justify-content-center marg">
+            <button 
+                *ngIf="etat"
+                type="submit"
+                (click)="add()"
+                class="btn btn-secondary "
+                routerLink="/gestionCarte"
+                >
+                Ajouter
+            </button>
+            <button 
+                *ngIf="!etat"
+                type="submit"
+                class="btn btn-secondary "
+                routerLink="/gestionCarte"
+                >
+                Modifier
+            </button>
+            <button 
+                class="btn btn-secondary "
+                routerLink="/gestionCarte"
+                (click)="annuler()"
+                >
+                Annuler
+            </button>
+        </div>
+    </form>
+</div>

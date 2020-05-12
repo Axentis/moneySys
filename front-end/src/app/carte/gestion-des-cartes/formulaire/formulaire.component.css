@@ -20,16 +20,23 @@
 .last{
     margin-bottom: 20px;
 }
-.renouvlable{
-    margin: 20px 0px 20px 0px;
-}
-.card-header{
+
+ .card-header{
+    color: white;
     border: 2px solid lightgray;
-    background-color: darkgray;
+    background-color: CadetBlue ;
+   /*  background-color:purple;
+    color:white */
 }
+
 .date{
     margin-top: 12px;
 }
 .form-control.ng-touched.ng-invalid{
     border: 2px solid red;
 }
+
+.size{
+    font-size: small;
+}
+.last{}

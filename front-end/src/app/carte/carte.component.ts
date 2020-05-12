@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Carte } from '../model/Carte';
 
 @Component({
   selector: 'app-carte',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarteComponent implements OnInit {
 
+ 
+  
   constructor() { }
 
   ngOnInit() {

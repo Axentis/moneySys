@@ -1,0 +1,269 @@
+<div 
+    class="card-header  marg ">
+    Création d'une nouvelle tarif
+    <button 
+      type="button" 
+      class="close" 
+      aria-label="Close">
+      <a routerLink="/tarifCarte">
+        <span 
+            aria-hidden="true">
+            &times;
+        </span>
+      </a>
+    </button>
+</div>
+
+<div 
+    class="card-body panel1 size ">
+    <form 
+        #form="ngForm" 
+        (ngSubmit)="submit()">
+        <!--Inputs-->
+        <div 
+            class=" margin">
+            <div class="col-sm-12 ">
+                <div 
+                    class="row ">
+                    <div class="col-sm-6 panel1">
+                        <!--Code tarif-->
+                        <div 
+                            class="form-inline row first">
+                            <label 
+                                for="code" 
+                                class="text-left col-lg-6">
+                                Code tarif 
+                            </label>
+                            <input 
+                                type="text" 
+                                id="code"
+                                name="code" 
+                                class="form-control col-lg-3" 
+                                ngModel
+                                [ngModel]="tarif.code_tarif | value" 
+                                (ngModelChange)="tarif.code_tarif=$event">   
+                        </div>
+                        <!--Libelle-->
+                        <div 
+                            class="form-inline row">
+                            <label 
+                                for="libelle" 
+                                class="text-left col-lg-6">
+                                libelle 
+                            </label>
+                            <input 
+                                type="text" 
+                                id="libelle"
+                                name="libelle" 
+                                class="form-control col-lg-5" 
+                                ngModel
+                                [(ngModel)]="tarif.libille"> 
+                        </div>
+                        <!--Plafond de la carte-->
+                        <div 
+                            class="form-inline row ">
+                            <label 
+                                for="plafond" 
+                                class="text-left col-lg-6">
+                                Plafond de la carte 
+                            </label>
+                            <input 
+                                type="text" 
+                                id="plafond"
+                                name="plafond" 
+                                class="form-control col-lg-5" 
+                                ngModel
+                                [ngModel]="tarif.plafondCarte | value" 
+                                (ngModelChange)="tarif.plafondCarte=$event">         
+                        </div>
+                        <!--Plafond de la carte Gold-->
+                        <div 
+                            class="form-inline row ">
+                            <label 
+                                for="plafondGold" 
+                                class="text-left col-lg-6">
+                                Plafond de la Carte Gold
+                            </label>
+                            <input 
+                                type="text" 
+                                id="plafondGold"
+                                name="plafondGold" 
+                                class="form-control col-lg-5" 
+                                ngModel
+                                [ngModel]="tarif.plafondCarteGold | value" 
+                                (ngModelChange)="tarif.plafondCarteGold=$event">         
+                        </div>
+                        <!--Commission Fixe-->
+                        <div 
+                            class="form-inline row ">
+                            <label 
+                                for="commF" 
+                                class="text-left col-lg-6">
+                                Commission Fixe 
+                            </label>
+                            <input 
+                                type="text" 
+                                id="commF"
+                                name="commF" 
+                                class="form-control col-lg-5" 
+                                ngModel
+                                [ngModel]="tarif.commissionFixe | value" 
+                                (ngModelChange)="tarif.commissionFixe=$event">                       
+                        </div>
+                        <!--Commission Minimal-->
+                        <div 
+                            class="form-inline row last">
+                            <label 
+                                for="commMin" 
+                                class="text-left col-lg-6">
+                                Commission Minimal 
+                            </label>
+                            <input 
+                                type="text" 
+                                id="commMin"
+                                name="commMin" 
+                                class="form-control col-lg-5" 
+                                ngModel
+                                [ngModel]="tarif.commmissionMin | value" 
+                                (ngModelChange)="tarif.commmissionMin=$event">                        
+                        </div>
+                    </div>
+                    <div class="col-sm-6 panel1">
+                        <!--Commission Maximal-->
+                        <div 
+                            class="form-inline row first">
+                            <label 
+                                for="commF" 
+                                class="text-left col-lg-6">
+                                Commission Maximal 
+                            </label>
+                            <input 
+                                type="text" 
+                                id="commF"
+                                name="commF" 
+                                class="form-control col-lg-5" 
+                                ngModel
+                                [ngModel]="tarif.commissionMax | value" 
+                                (ngModelChange)="tarif.commissionMax=$event">
+                        </div>
+                        <!--Taux Commission Débit-->
+                        <div 
+                            class="form-inline row ">
+                            <label 
+                                for="TauxCommD" 
+                                class="text-left col-lg-6">
+                                taux commission débit 
+                            </label>
+                            <input 
+                                type="text" 
+                                id="TauxCommD"
+                                name="TauxCommD" 
+                                class="form-control col-lg-5" 
+                                ngModel
+                                [ngModel]="tarif.tauxCommDebit | value" 
+                                (ngModelChange)="tarif.tauxCommDebit=$event">
+                        </div>
+                        <!--taux commission crédit-->
+                        <div 
+                            class="form-inline row ">
+                            <label 
+                                for="TauxCommC" 
+                                class="text-left col-lg-6">
+                                Taux commission crédit
+                            </label>
+                            <input 
+                                type="text" 
+                                id="TauxCommC"
+                                name="TauxCommC" 
+                                class="form-control col-lg-5" 
+                                ngModel
+                                [ngModel]="tarif.tauxcommCredit | value" 
+                                (ngModelChange)="tarif.tauxcommCredit=$event">
+                        </div>
+                        <!--Taxe commission-->
+                        <div 
+                            class="form-inline row ">
+                            <label 
+                                for="TaxeComm" 
+                                class="text-left col-lg-6">
+                                Taxe commission 
+                            </label>
+                            <input 
+                                type="text" 
+                                id="TaxeComm"
+                                name="taxeComm" 
+                                class="form-control col-lg-5" 
+                                ngModel
+                                [ngModel]="tarif.taxeComm | value" 
+                                (ngModelChange)="tarif.taxeComm=$event">  
+                        </div>
+                        <!--Taux Interchange commission-->
+                        <div 
+                            class="form-inline row ">
+                            <label 
+                                for="TauxInterComm" 
+                                class="text-left col-lg-6">
+                                Taux interchange commision 
+                            </label>
+                            <input 
+                                type="text" 
+                                id="TauxInterComm"
+                                name="tauxInterComm" 
+                                class="form-control col-lg-5" 
+                                ngModel
+                                [ngModel]="tarif.tauxInterComm | value" 
+                                (ngModelChange)="tarif.tauxInterComm=$event">                        
+                        </div>
+                        <!--Taux interchange transaction-->
+                        <div 
+                            class="form-inline row last">
+                            <label 
+                                for="TauxInterTrans" 
+                                class="text-left col-lg-6">
+                                Taux interchange transaction
+                            </label>
+                            <input 
+                                type="text" 
+                                id="TauxInterTrans"
+                                name="taxeTrans" 
+                                class="form-control col-lg-5" 
+                                ngModel
+                                [ngModel]="tarif.tauxInterTrans | value" 
+                                (ngModelChange)="tarif.tauxInterTrans=$event">                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--Button-->
+        <div 
+            class="d-flex justify-content-center marg">
+            <button 
+                *ngIf="etat"
+                type="submit"
+                (click)="add()"
+                class="btn btn-secondary "
+                routerLink="/tarifCarte"
+                >
+                Ajouter
+            </button>
+            <button 
+                *ngIf="!etat"
+                type="submit"
+                class="btn btn-secondary "
+                routerLink="/tarifCarte"
+                >
+                Modifier
+            </button>
+            <button 
+                class="btn btn-secondary "
+                routerLink="/tarifCarte"
+                click=""
+                [disabled]="!form.valid"
+                disabled>
+                Annuler
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,146 @@
+<!--Input de recherche-->
+<div 
+    class="body col-sm-12 first">
+    <div class="col-sm-8 offset-lg-1 margin ">  
+        <form class="form"> 
+            <div 
+                class="form-inline">
+                <label 
+                    for="code" 
+                    class="text-left col-lg-5">
+                    Num de carte
+                </label>
+                <input 
+                    type="text" 
+                    id="code"
+                    name="code"
+                    ngModel 
+                    class="form-control is-valid col-lg-5">
+                <button 
+                    class="btn btn-success">
+                    Chercher
+                </button>
+            </div>
+        </form> 
+    </div>
+</div>  
+
+<!--Tableaux & Pagination-->
+<div 
+    class="body">
+    <!--Tableau-->
+    <div 
+        class="col-lg-12 ">       
+        <table 
+            class="table table-hover table-bordered table-striped">
+            <thead 
+                class="thead-light">
+                <tr>
+                    <!--Num de carte-->
+                    <th 
+                        scope="col">
+                        Num de carte
+                    </th>
+                    <!--Porteur de carte-->
+                    <th 
+                        scope="col">
+                        Porteur
+                    </th>
+                    <!--Type de carte-->
+                    <th 
+                        scope="col">
+                        Type de carte
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr 
+                    *ngFor="let c of carte;index as i">
+                    <!--Num de carte-->
+                    <th 
+                        scope="row">
+                        {{c.Num}}
+                    </th>
+                    <!--Porteur de carte-->
+                    <td>
+                        {{c.porteur.nom}}
+                    </td>
+                    <!--Type de carte-->
+                    <td>
+                        {{c.info.type.type}}
+                    </td>
+                    <!--Buttons de modification-->
+                    <td>
+                        <!--Buttons de modification-->
+                        <button 
+                            class="btn btn-warning" 
+                            (click)="Edit(c,i)" >
+                            Modifier
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--Pagination-->
+    <pagination></pagination>>
+</div>
+
+<!--Button-->
+<div
+    class="d-flex justify-content-center marg">
+    <button 
+        class="btn btn-secondary last"
+        data-toggle="modal" 
+        data-target="#myModal">
+        Annuler une carte
+    </button>
+</div>  
+
+<!--Modal--> 
+<div 
+    class="container">
+    <!-- The Modal -->
+    <div 
+        class="modal" id="myModal">
+      <div 
+        class="modal-dialog">
+        <div 
+            class="modal-content">
+            <!-- Modal Header -->
+            <div 
+                class="modal-header">
+                <h4 
+                    class="modal-title">
+                    Les cartes signalées pour les annuler
+                </h4>
+                <button 
+                    type="button" 
+                    class="close" 
+                    data-dismiss="modal">
+                    &times;
+                </button>
+            </div>
+            
+            <!-- Modal body -->
+            <div 
+                class="modal-body">
+                <annuler-carte></annuler-carte>
+            </div>
+        
+            <!-- Modal footer -->
+            <div 
+                class="modal-footer">
+                <button 
+                    type="button" 
+                    class="btn btn-danger" 
+                    data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+</div> 

@@ -1,0 +1,28 @@
+.form-control{
+    margin-right: 10px;
+}
+.margin{
+    margin: 62px 0px 70px 0px;
+}
+.body{
+    border: 2px solid lightgray;}
+
+.table{
+    margin-top: 8px;
+}
+
+/*margin pour premier bloc*/
+.first{
+    margin-top: 20px;
+}
+.btn-warning{
+    margin-right: 5px;
+}
+td,th{
+    text-align: center;
+}
+.selection{
+    background-color: Indigo  ;
+    color: white;
+
+}

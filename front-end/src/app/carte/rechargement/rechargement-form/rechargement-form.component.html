@@ -1,0 +1,93 @@
+<!--Header-->
+<div 
+    class="card-header a panel1 marg ">
+    Création d'une nouvelle type de carte
+    <button 
+      type="button" 
+      class="close" 
+      aria-label="Close">
+      <a routerLink="/typeCarte">
+        <span 
+            aria-hidden="true">
+            &times;
+        </span>
+      </a>
+    </button>
+</div>
+
+<!--Body-->
+<div 
+    class="panel-body panel1 ">
+    <form 
+        #form="ngForm" 
+        (ngSubmit)="submit()">
+        <!--Inputs-->
+        <div 
+            class="col-sm-11 marg">
+            <div class="col-sm-12 size">
+                <div 
+                    class="card-panel col-sm-8 offset-sm-2 panel1 ">
+                    <!--Num de carte-->
+                    <div 
+                        class="form-inline row first">
+                        <label 
+                            for="code" 
+                            class="text-left col-lg-5">
+                            Num de carte
+                        </label>
+                        <input 
+                            type="text" 
+                            id="code"
+                            name="code" 
+                            (change)="validation()"
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [ngModel]="carte.Num | value" 
+                            (ngModelChange)="carte.Num=$event">          
+                    </div>
+                    <!--Alert de Num de carte-->
+                    <div 
+                        class="alert alert-danger  col-lg-6 offset-lg-5"
+                        *ngIf="!etat && carte.Num!=0 ">
+                        cette carte qui a le num: {{carte.Num}} n'est pas rechargeable
+                    </div>
+                    <!--Montant-->
+                    <div 
+                        class="form-inline row last">
+                        <label 
+                            for="montant" 
+                            class="text-left col-lg-5">
+                            Montant de rechargement
+                        </label>
+                        <input 
+                            type="text" 
+                            id="montant"
+                            name="montant" 
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [ngModel]="montant | value" 
+                            (ngModelChange)="montant=$event">          
+                    </div>                                  
+                </div>
+            </div>
+        </div>
+        
+        <!--Button-->
+        <div 
+            class="d-flex justify-content-center ">
+            <button 
+                type="submit"
+                (click)="recharger()"
+                class="btn btn-secondary "
+                [disabled]="!etat">
+                Recharger
+            </button>
+            <button 
+                class="btn btn-secondary "
+                routerLink="/rechargementCarte"
+                >
+                Annuler
+            </button>
+        </div>
+    </form>
+</div>

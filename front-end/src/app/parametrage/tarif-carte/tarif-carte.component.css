@@ -1,0 +1,25 @@
+.form-control{
+    margin-right: 10px;
+}
+.margin{
+    margin: 62px 0px 70px 0px;
+}
+.body{
+    border: 2px solid lightgray;}
+
+.form-inline,.table{
+    margin-top: 8px;
+}
+.btn-secondary.ajout{
+    margin: 15px 0px 15px 0px;
+}
+/*margin pour premier bloc*/
+.first{
+    margin-top: 20px;
+}
+.btn-danger{
+    margin-left: 3px;
+}
+.body{
+    text-align: center;
+}

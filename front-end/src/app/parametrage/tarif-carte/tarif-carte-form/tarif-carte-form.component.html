@@ -1,0 +1,134 @@
+<!--Header-->
+<div 
+    class="card-header a panel1 marg ">
+    <span *ngIf="etat==true">
+        Création d'un nouveau tarif de carte
+    </span>
+     <span *ngIf="etat==false"> 
+        Modification d'opposition de carte de Num: {{tarif.code_tarif}}
+    </span>     
+    <button 
+      type="button" 
+      class="close" 
+      aria-label="Close">
+      <a routerLink="/tarifCarte">
+        <span 
+            aria-hidden="true">
+            &times;
+        </span>
+      </a>
+    </button>
+</div>
+
+<!--Body-->
+<div 
+    class="panel-body panel1 ">
+    <form 
+        #form="ngForm" 
+        (ngSubmit)="submit()">
+        <!--Inputs-->
+        <div 
+            class="col-sm-11 marg">
+            <div class="col-sm-12 size">
+                <div 
+                    class="card-panel col-sm-8 offset-sm-2 panel1 ">
+                    <!--Code tarif-->
+                    <div 
+                        class="form-inline row first">
+                        <label 
+                            for="code" 
+                            class="text-left col-lg-5">
+                            Code tarif
+                        </label>
+                        <input 
+                            type="text" 
+                            id="code"
+                            name="code" 
+                            disabled
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [ngModel]="tarif.code_tarif | value" 
+                            (ngModelChange)="tarif.code_tarif=$event">          
+                    </div>
+                    
+                    <!--Libelle-->
+                    <div 
+                        class="form-inline row">
+                        <label 
+                            for="libelle" 
+                            class="text-left col-lg-5">
+                            libelle 
+                        </label>
+                        <input 
+                            type="text" 
+                            id="libelle"
+                            name="libelle" 
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [(ngModel)]="tarif.libille">
+                    </div>   
+                     <!--Commission Fixe-->
+                    <div 
+                        class="form-inline row ">
+                        <label 
+                            for="comm" 
+                            class="text-left col-lg-5">
+                            Commission Fixe
+                        </label>
+                        <input 
+                            type="text" 
+                            id="comm"
+                            name="comm" 
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [ngModel]="tarif.commissionFixe | value" 
+                            (ngModelChange)="tarif.commissionFixe=$event">   
+                    </div>
+                    <!--Taxe de commission-->
+                    <div 
+                        class="form-inline row last">
+                        <label 
+                            for="taxe" 
+                            class="text-left col-lg-5">
+                            Taxe de commission
+                        </label>
+                        <input 
+                            type="text" 
+                            id="taxe"
+                            name="taxe" 
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [ngModel]="tarif.taxeComm | value" 
+                            (ngModelChange)="tarif.taxeComm=$event">                    </div>            
+                    </div>
+            </div>
+        </div>
+        
+        <!--Button-->
+        <div 
+            class="d-flex justify-content-center ">
+            <button 
+                *ngIf="etat"
+                type="submit"
+                (click)="add()"
+                class="btn btn-secondary "
+                >
+                Ajouter
+            </button>
+            <button 
+                *ngIf="!etat"
+                type="submit"
+                class="btn btn-secondary "
+                routerLink="/tarifCarte"
+                >
+                Modifier
+            </button>
+            <button 
+                class="btn btn-secondary "
+                routerLink="/tarifCarte"
+                >
+                Annuler
+            </button>
+        </div>
+    </form>
+</div>

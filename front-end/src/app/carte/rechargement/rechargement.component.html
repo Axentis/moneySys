@@ -43,15 +43,20 @@
                         scope="col">
                         Num de carte
                     </th>
-                    <!--Montant-->
+                    <!--Solde-->
                     <th 
                         scope="col">
-                        Montant
+                        Solde
                     </th>
-                    <!--Type de carte-->
+                    <!--Montant de dérnier rechargement-->
                     <th 
                         scope="col">
-                        Type de carte
+                        Montant de rechergement
+                    </th>
+                    <!--Date de rechargement-->
+                    <th 
+                        scope="col">
+                        Date de rechargement
                     </th>
                 </tr>
             </thead>
@@ -65,18 +70,22 @@
                     </th>
                     <!--Montant-->
                     <td>
-                        {{c.comptes[0].solde}}
+                        {{c.comptes.solde}}
                     </td>
                     <!--Type de carte-->
                     <td>
-                        {{c.info.type.type}}
+                        {{c.rechargement[0].montant}}
+                    </td>
+                    <!--Type de carte-->
+                    <td>
+                        {{c.rechargement[0].dateRechargement| date}}
                     </td>
                     <!--Bouton de modification-->
                     <td>
                         <button 
-                            class="btn btn-warning" 
-                            (click)="Edit(c)" >
-                            Modifier
+                            class="btn btn-secondary" 
+                            (click)="afficher(c)">
+                            Afficher
                         </button>
                     </td>
                 </tr>
@@ -97,3 +106,4 @@
         Recharger une cartes
     </button>
 </div>    
+

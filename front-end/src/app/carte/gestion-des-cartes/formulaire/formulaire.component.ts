@@ -19,6 +19,7 @@ export class FormulaireComponent implements OnInit {
   carte= this.Parameter.carte
   a=this.Parameter.cart()
   etat:boolean= this.Parameter.etat;
+  test:number
   constructor(
     private globalService:GlobalService,
     private Parameter: ParametersService,
@@ -35,18 +36,26 @@ export class FormulaireComponent implements OnInit {
     if(this.etat==true){
         if (this.globalService.porteur!=undefined) {
           this.carte.porteur = this.globalService.porteur;
-          this.carte.comptes=this.carte.porteur.compte
+          this.carte.comptes=this.carte.porteur.compte[0]
         }
         if (this.globalService.info_carte!=undefined) {
           this.carte.info = this.globalService.info_carte;
         }
         this.carte.renouvelement="renouvelable"
+        this.renouvlable()
+        this.carte.Num=this.data.carte[this.data.carte.length-1].Num+1
       }
     if(this.etat==false){
       this.carte=this.a
+      if (this.globalService.porteur!=undefined) {
+        this.carte.porteur = this.globalService.porteur;
+        this.carte.comptes=this.carte.porteur.compte[0]
+      }
+      if (this.globalService.info_carte!=undefined) {
+        this.carte.info = this.globalService.info_carte;
+      }
     }    
     
-
   }
  
   
@@ -57,18 +66,36 @@ export class FormulaireComponent implements OnInit {
   add(){
    
    // this.data.cartee[0].porteur=this.porteur
+    //this.carte.info.etat='i'
     this.data.pushCarte(this.carte)
+
+
   }
   //Renouvelement
   definir() {
     this.carte.renouvelement="à définir"
+    this.carte.date_renouvelement[0].dateDebut=new Date()
+    this.carte.date_renouvelement[0].dateFin=new Date()
+    this.carte.date_renouvelement[0].code_renouvellement=this.data.renouvelement.length+1
+    
   } 
   renouvlable(){
+    
     this.carte.renouvelement="renouvelable"
-    this.carte.dateDeb=new Date()
+    let date :Date= new Date()
+    let a = date.getFullYear()+5
+    this.carte.date_renouvelement[0].dateDebut=new Date()    
+    date.setFullYear(2024)
+    this.carte.date_renouvelement[0].dateFin=date
+    this.carte.date_renouvelement[0].dateFin.setFullYear(a)
+    this.carte.date_renouvelement[0].code_renouvellement=this.data.renouvelement.length+1
   }
+
   nonRenouvelable(){
     this.carte.renouvelement="non renouvelable"
+    if(this.carte.date_renouvelement[0].dateFin!= undefined){
+      this.carte.date_renouvelement[0].dateFin=new Date()
+    }
   }
   addCarte(){
     this.router.navigateByUrl("/formCarteBIN")

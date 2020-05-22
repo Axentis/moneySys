@@ -24,7 +24,6 @@
                 </button>
             </div>
         </form>
-    
     </div>
 </div> 
 
@@ -73,25 +72,25 @@
                     <td>
                         {{c.info.type.type}}
                     </td>
-                    <!--Date de début-->
+                    <!-- début de renouvelement-->
                     <td>
-                        {{ c.dateDeb|date }} 
+                        {{ c.date_renouvelement[0].dateDebut|date }} 
                     </td>
-                    <!--Date Fin-->
+                    <!--Date Expiration-->
                     <td>
-                        {{ c.dateFin|date}}
+                        {{ c.date_renouvelement[0].dateFin|date}}
                     </td>
                     <td>
                         <button 
-                            class="btn btn-warning" 
-                            (click)="Edit(c)" >
-                            Modifier
+                            class="btn btn-secondary" 
+                            (click)="afficher(c)" >
+                            Afficher
                         </button>
-                        <button 
+                        <!-- <button 
                             class="btn btn-danger" 
                             (click)="remove(i)" >
                             Supprimer
-                        </button>
+                        </button> -->
                     </td>
                 </tr>
             </tbody>
@@ -100,6 +99,16 @@
 
     <!--Pagination-->
     <pagination></pagination>
+</div> 
+
+<!--Button de Rechergement-->
+<div
+    class="d-flex justify-content-center marg">
+    <button 
+        class="btn btn-secondary ajout "
+        (click)="Renouveller()">
+        Renouveller une cartes
+    </button>
 </div> 
     
 

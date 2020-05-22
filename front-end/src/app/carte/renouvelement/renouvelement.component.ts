@@ -11,7 +11,8 @@ import { Carte } from 'src/app/model/Carte';
 })
 export class RenouvelementComponent implements OnInit {
 
-  carte:Carte[]=[this.Parameters.carte]
+  carte:Carte[]=[this.Parameters.carte];
+  index:number;
   constructor(
     private Parameters:ParametersService,
     private data:DataService,
@@ -28,11 +29,20 @@ export class RenouvelementComponent implements OnInit {
     this.carte.splice(0,1)
 
   }  
-  affiche(){
+  /* affiche(){
     for (let i=0;i<this.data.carte.length;i++){
       if(this.data.carte[i].renouvelement=="renouvelable" || this.data.carte[i]=="à définir"){
         this.carte.push(this.data.carte[i])
       }
     }
+  } */
+  Renouveller(){
+    this.router.navigateByUrl("renouvelementFormCarte")
+  }
+  afficher(c){
+    this.Parameters.set_carte(c)
+    this.index=c.Num
+    this.router.navigateByUrl("/renouvelementAfficheCarte")
+    console.log(c)
   }
 }

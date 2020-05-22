@@ -1,0 +1,94 @@
+<!--Input de recherche-->
+<div 
+    class="body col-lg-12 first">
+    <div class="col-lg-8 offset-sm-1 margin ">  
+        <form class="form">  
+            <div 
+                class="form-inline">
+                <label 
+                    for="code" 
+                    class="text-left col-lg-5">
+                    Code type
+                </label>
+                <input 
+                    type="text" 
+                    id="code"
+                    name="code"
+                    ngModel 
+                    class="form-control is-valid col-lg-5">
+                <button 
+                    class="btn btn-success">
+                    Chercher
+                </button>
+            </div>
+        </form>
+    </div>
+</div> 
+
+<!-- Tableau d'affichage & Pagination-->
+<div 
+    class="body ">
+    <!--Tableau-->
+    <div class="offset col-sm-10 offset-sm-1">       
+        <table 
+            class="table table-hover table-bordered table-striped">
+            <thead 
+                class="thead-light" >
+                <tr>
+                    <th 
+                        scope="col">
+                        Code type
+                    </th>
+                    <th 
+                        scope="col">
+                        Libelle 
+                    </th>
+                    <th 
+                        scope="col">
+                        Frais d'opposition 
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr 
+                    *ngFor="let o of opposition;index as i">
+                    <!---Code d'opposition-->
+                    <th 
+                        scope="row">
+                        {{o.code_opposition}}
+                    </th>
+                    <!--Libelle d'opposition-->
+                    <td>
+                        {{ o.libelle }}
+                    </td>
+                    <!--Frais d'opposition-->
+                    <td>
+                        {{ o.frais_opposition }}
+                    </td>
+
+                    <!-- Buttons-->
+                    <td>
+                        <!--Modifier-->
+                        <button 
+                            class="btn btn-secondary modifier" 
+                            (click)="Edit(o)" >
+                            Modifier
+                        </button>
+                        <!--Supprimer-->
+                        <button 
+                            class="btn btn-danger" 
+                            (click)="remove(i)" >
+                            Supprimer
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--Pagination-->
+    <pagination></pagination>
+</div> 
+
+
+
+

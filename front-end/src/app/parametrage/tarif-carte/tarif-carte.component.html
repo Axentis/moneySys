@@ -1,0 +1,124 @@
+<!--Input de recherche-->
+<div 
+    class="body col-lg-12 first">
+    <div class="col-lg-8 offset-lg-1 margin ">  
+        <form class="form">
+            <div 
+                class="form-inline">
+                <label 
+                    for="code" 
+                    class="text-left col-lg-5">
+                    Code tarif 
+                </label>
+                <input 
+                    type="text" 
+                    id="code"
+                    name="code"
+                    ngModel 
+                    class="form-control is-valid col-lg-5">
+                <button 
+                    class="btn btn-success">
+                    Chercher
+                </button>
+            </div>
+        </form>
+    </div>
+</div> 
+ 
+<!--Tableau & Pagination-->
+<div 
+    class="body">
+    <!--Tableau-->
+    <div 
+        class="col-lg-12 ">       
+        <table 
+            class="table table-hover table-bordered">
+            <thead 
+                class="thead-light">
+                <tr>
+                    <!--Code de tarif-->
+                    <th 
+                        scope="col">
+                        Code tarif
+                    </th>
+                    <!--Libelle de tarif-->
+                    <th 
+                        scope="col">
+                        Libelle 
+                    </th>
+                    <!--Commision Fixe-->
+                    <th 
+                        scope="col">
+                        Commission Fixe
+                    </th>
+                    <th 
+                        scope="col"> 
+                        Taxe commission
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr 
+                    *ngFor="let t of tarif;index as i">
+                    <!--Code de tarif-->
+                    <th 
+                        scope="row">
+                        {{t.code_tariff}}
+                    </th>
+                    <!--Libelle de tarif-->
+                    <td>
+                        {{ t.libillee }}
+                    </td>
+                    <!--Commision Fixe-->
+                    <td>
+                        {{ t.commissionFixe|value }}
+                        <span 
+                            *ngIf="t.commissionFixe==0">
+                            GRATUIT
+                        </span> 
+                    </td>
+                    <!--Taxe commission-->
+                    <td>                 
+                        <span 
+                            *ngIf="t.taxeComm!=0,else gratuit">
+                            {{ t.taxeComm * 100 }}%
+                        </span>
+                        <ng-template #gratuit>
+                            <span>
+                                GRATUIT
+                            </span>
+                        </ng-template>
+                    </td>
+                    <!--Buttons de Modification et Suppression-->
+                    <td>
+                        <!--Modifier une tarif-->
+                        <button 
+                            class="btn btn-secondary" 
+                            (click)="Edit(t)" >
+                            Modifier
+                        </button>
+                        <!--Supprimer une tarif-->
+                        <button 
+                            class="btn btn-danger" 
+                            (click)="remove(i)" >
+                            Supprimer
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--Pagination-->
+    <pagination></pagination>
+</div> 
+ 
+<!--Buttons d'ajout -->
+<div
+    class="d-flex justify-content-center marg">
+    <button 
+        class="btn btn-secondary ajout"
+        (click)="add()">
+        Ajouter une nouveau tarif 
+    </button>
+</div>
+

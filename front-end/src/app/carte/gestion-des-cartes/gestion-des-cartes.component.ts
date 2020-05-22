@@ -40,7 +40,7 @@ export class GestionDesCartesComponent implements OnInit {
       console.log(c)
     }
     remove(i){
-      this.cartes.splice(i, 1);
+      this.data.supprimerCarte(i)   
     }
 
 }

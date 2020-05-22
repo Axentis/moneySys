@@ -28,7 +28,7 @@ export class OppositionComponent implements OnInit {
     this.carte.splice(0,1)
   }
   Edit(c,i){
-    this.carte[i].info.etat="f"
+    this.carte[i].info.etat="i"
     this.carte.splice(i,1)
     this.n=i;
   }

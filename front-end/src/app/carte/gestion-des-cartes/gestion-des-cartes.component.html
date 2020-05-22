@@ -112,7 +112,7 @@
                     </td>
                     <!--Compte-->
                     <td>
-                        {{carte.comptes[0].client}}
+                        {{carte.comptes.client}}
                     </td>
                     <!--Type de carte-->
                     <td>
@@ -122,7 +122,7 @@
                     <td>
                         <!--Boutton de modification-->
                         <button 
-                            class="btn btn-warning" 
+                            class="btn btn-secondary" 
                             (click)="Edit(carte)" >
                             Modifier
                         </button>
@@ -146,7 +146,7 @@
 <div
     class="d-flex justify-content-center marg">
     <button 
-        class="btn btn-secondary last"
+        class="btn btn-secondary ajout last"
         (click)="addCarte()">
         Ajouter une carte 
     </button>

@@ -1,0 +1,118 @@
+<!--Header-->
+<div 
+    class="card-header a panel1 marg ">
+    <span *ngIf="etat==true"> 
+        Création d'une nouveau plafond de carte
+    </span>
+    <span *ngIf="etat==false"> 
+        Modification de plafond de carte de Num: {{plafond.code_plafond}}
+    </span>
+    <button 
+      type="button" 
+      class="close" 
+      aria-label="Close">
+      <a routerLink="/plafondCarte">
+        <span 
+            aria-hidden="true">
+            &times;
+        </span>
+      </a>
+    </button>
+</div>
+
+<!--Body-->
+<div 
+    class="panel-body panel1 ">
+    <form 
+        #form="ngForm" 
+        (ngSubmit)="submit()">
+        <!--Inputs-->
+        <div 
+            class="col-sm-11 marg">
+            <div class="col-sm-12 size">
+                <div 
+                    class="card-panel col-sm-8 offset-sm-2 panel1 ">
+                    <!--Code type-->
+                    <div 
+                        class="form-inline row first">
+                        <label 
+                            for="code" 
+                            class="text-left col-lg-5">
+                            Code type
+                        </label>
+                        <input 
+                            type="text" 
+                            id="code"
+                            name="code" 
+                            disabled
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [ngModel]="plafond.code_plafond | value" 
+                            (ngModelChange)="plafond.code_plafond=$event">          
+                    </div>
+                    <!--Plafond de carte-->
+                    <div 
+                        class="form-inline row ">
+                        <label 
+                            for="plafond" 
+                            class="text-left col-lg-5">
+                            Plafond de carte 
+                        </label>
+                        <input 
+                            type="text" 
+                            id="plafond"
+                            name="plafond" 
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [ngModel]="plafond.plafond | value" 
+                            (ngModelChange)="plafond.plafond=$event">
+                    </div> 
+                    <!--Plafond de carte Gold-->
+                    <div 
+                        class="form-inline row last">
+                        <label 
+                            for="gold" 
+                            class="text-left col-lg-5">
+                            Plafond de carte Gold
+                        </label>
+                        <input 
+                            type="text" 
+                            id="gold"
+                            name="gold" 
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [ngModel]="plafond.plafondGold | value" 
+                            (ngModelChange)="plafond.plafondGold=$event">
+                    </div>                
+                </div>
+            </div>
+        </div>
+        
+        <!--Button-->
+        <div 
+            class="d-flex justify-content-center ">
+            <button 
+                *ngIf="etat"
+                type="submit"
+                (click)="add()"
+                class="btn btn-secondary "
+                >
+                Ajouter
+            </button>
+            <button 
+                *ngIf="!etat"
+                type="submit"
+                class="btn btn-secondary "
+                routerLink="/plafondCarte"
+                >
+                Modifier
+            </button>
+            <button 
+                class="btn btn-secondary "
+                routerLink="/plafondCarte"
+                >
+                Annuler
+            </button>
+        </div>
+    </form>
+</div>

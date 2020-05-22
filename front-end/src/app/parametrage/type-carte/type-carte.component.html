@@ -1,0 +1,94 @@
+<!--Input de recherche-->
+<div 
+    class="body col-lg-12 first">
+    <div class="col-lg-8 offset-sm-1 margin ">  
+        <form class="form">  
+            <div 
+                class="form-inline">
+                <label 
+                    for="code" 
+                    class="text-left col-lg-5">
+                    Code type
+                </label>
+                <input 
+                    type="text" 
+                    id="code"
+                    name="code"
+                    ngModel 
+                    class="form-control is-valid col-lg-5">
+                <button 
+                    class="btn btn-success">
+                    Chercher
+                </button>
+            </div>
+        </form>
+    </div>
+</div> 
+
+<!-- Tableau d'affichage & Pagination-->
+<div 
+    class="body ">
+    <!--Tableau-->
+    <div class="offset col-sm-10 offset-sm-1">       
+        <table 
+            class="table table-hover table-bordered table-striped">
+            <thead 
+                class="thead-light" >
+                <tr>
+                    <!---Code de type-->
+                    <th 
+                        scope="col">
+                        Code type
+                    </th>
+                    <!---Nom de type-->
+                    <th 
+                        scope="col">
+                        Libelle 
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr 
+                    *ngFor="let t of type;index as i">
+                    <!---Code de type-->
+                    <th 
+                        scope="row">
+                        {{t.code_type}}
+                    </th>
+                    <!---Nom de type-->
+                    <td>
+                        {{ t.type }}
+                    </td>
+                    <!-- Buttons-->
+                    <td>
+                        <!--Modifier-->
+                        <button 
+                            class="btn btn-secondary" 
+                            (click)="Edit(t)" >
+                            Modifier
+                        </button>
+                        <!--Supprimer-->
+                        <button 
+                            class="btn btn-danger" 
+                            (click)="remove(i)" >
+                            Supprimer
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--Pagination-->
+    <pagination></pagination>
+</div> 
+
+<!--Button d'ajout-->
+<div
+    class="d-flex justify-content-center marg">
+    <button 
+        class="btn btn-secondary ajout"
+        (click)="add()"
+        >Ajouter un nouveau type 
+    </button>
+</div>
+

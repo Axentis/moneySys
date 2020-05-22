@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 })
 export class RechargementComponent implements OnInit {
 
-  carte:Carte[]=[this.Parameters.carte]
+  carte:Carte[]=[this.Parameters.carte];
+  index:number
+  a=this.data.rechargement
   constructor(
     private Parameters:ParametersService,
     private data:DataService,
@@ -20,17 +22,27 @@ export class RechargementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data.carte.forEach(element => {
+     this.data.carte.forEach(element => {
       if(element.renouvelement!="non renouvelable" 
         && element.IsAnnule==false 
         && element.info.etat !="o"
-        && element.comptes[0].solde > 7){
+        //&& element.comptes.solde > this.data.rechargement[0].fraisRechargement
+        ){
         this.carte.push(element)
       }
-    });
+    }); 
+    //this.carte=this.data.carte
     this.carte.splice(0,1)
 
   }  
-  Edit(c){}
-  Recharger(){}
+  afficher(c){
+    this.Parameters.set_carte(c)
+    this.index=c.Num
+    this.router.navigateByUrl("/rechargementAfficheCarte")
+    console.log(c)
+  }
+  Recharger(){
+    this.router.navigateByUrl("/rechargementFormCarte")
+  }
 }
+

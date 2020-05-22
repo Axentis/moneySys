@@ -4,6 +4,9 @@ import { ReseauAcceptaion } from './Reseaux';
 import { Compte } from './compte';
 import { Porteur } from './porteur';
 import { InfoCarte } from './Info_carte';
+import { Opposition } from './opposition';
+import { Rechargement } from './Rechargement';
+import { Renouvelement } from './RenouvelementCarte';
 
 export class Carte{
     constructor(
@@ -13,10 +16,11 @@ export class Carte{
         public IsActive?: boolean,
         public IsAnnule?:boolean,
         public IsRechargeable?:boolean,
-        public comptes?: Compte[],
+        public rechargement ?:Rechargement[],
+        public comptes?: Compte,
         public porteur?: Porteur,
-        public dateDeb?: Date,
-        public dateFin?: Date
+        public date_renouvelement?:Renouvelement[],
+        public oppositionn?: Opposition,
         // public reseau?: ReseauAcceptaion,
     ){}
     

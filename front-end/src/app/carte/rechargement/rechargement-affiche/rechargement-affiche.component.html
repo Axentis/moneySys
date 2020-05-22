@@ -1,0 +1,66 @@
+<div 
+    class="card-header first "
+    >
+    <span > 
+        Les rechargement de la carte de Num: {{carte.Num}}
+    </span>
+    
+    <button 
+      type="button" 
+      class="close" 
+      aria-label="Close">
+      <a routerLink="/rechargementCarte">
+        <span 
+            aria-hidden="true">
+            &times;
+        </span>
+      </a>
+    </button>
+</div>
+<!--Tableau & Pagination-->
+<div 
+    style="text-align:center"
+    class=" body  panel1">
+    <!--Tableau-->
+    <div 
+        class="col-lg-12 container  first tab">       
+        <table 
+            class="table table-hover table-bordered">
+            <thead 
+                class="thead-light">
+                <tr>
+                    <!--Montant de rechargement-->   
+                    <th>
+                        Montant de rechargement
+                    </th>
+                    <!--Date de rechargement-->
+                    <th 
+                        scope="col">
+                        Date de rechargement
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr 
+                    *ngFor="let recharge of carte.rechargement, index as i ">
+                    <!--Montant de rechargement-->
+                    <th>
+                        {{recharge.montant}}
+                    </th>
+                    <!--date de rechargement-->
+                    <td>
+                        {{ recharge.dateRechargement | date}}
+                    </td>
+                   
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   
+    <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> -->
+    <!--Pagination-->
+    <pagination></pagination>
+
+</div>
+

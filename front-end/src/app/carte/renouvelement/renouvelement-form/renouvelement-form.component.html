@@ -1,0 +1,191 @@
+<!--Header-->
+<div 
+    class="card-header a panel1 marg ">
+    Création d'une nouvelle type de carte
+    <button 
+      type="button" 
+      class="close" 
+      aria-label="Close">
+      <a routerLink="/renouvelementCarte">
+        <span 
+            aria-hidden="true">
+            &times;
+        </span>
+      </a>
+    </button>
+</div>
+
+<!--Body-->
+<div 
+    class="panel-body panel1 ">
+    <form 
+        #form="ngForm" 
+        (ngSubmit)="submit()">
+        <!--Inputs-->
+        <div 
+            class="col-sm-11 marg">
+            <div class="col-sm-12 size">
+                <div 
+                    class="card-panel col-sm-8 offset-sm-2 panel1 ">
+                    <!--Num de carte-->
+                    <div 
+                        class="form-inline row first">
+                        <label 
+                            for="code" 
+                            class="text-left col-lg-5">
+                            Num de carte
+                        </label>
+                        <input 
+                            type="text" 
+                            id="code"
+                            name="code" 
+                            (change)="validation()"
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [ngModel]="carte.Num | value" 
+                            (ngModelChange)="carte.Num=$event">          
+                    </div>
+                    <!--Alert de Num de carte-->
+                    <div 
+                        class="alert alert-danger  col-lg-6 offset-lg-5"
+                        *ngIf="!etat && carte.Num!=0 ">
+                        cette carte qui a le num: {{carte.Num}} n'est pas renouvellable
+                    </div>
+                    <!--Mode de renouvelement-->
+                    <div 
+                        class="form-inline row first"
+                        [class.last]="checked!=3">
+                        <label 
+                            for="montant" 
+                            class="text-left col-lg-5">
+                            Durée de renouvellement
+                        </label>
+                        <div 
+                            class="form-inline row radio col-lg-6"
+                            >
+                                <a (click)="un()">
+                                    <input 
+                                    class="form-check-input" 
+                                    type="radio" 
+                                    id="un" 
+                                    name="radio"
+                                    [checked]="checked==1">
+                                </a>
+                                <label 
+                                    class="form-check-label" 
+                                    for="un">
+                                    1 ans
+                                </label>
+                                <div 
+                                    class="offset-lg-1">
+                                </div>
+                                <a (click)="deux()">
+                                    <input 
+                                        class="form-check-input" 
+                                        type="radio" 
+                                        id="non" 
+                                        name="radio"
+                                        [checked]="checked==2">
+                                </a>
+                                <label 
+                                    class="form-check-label" 
+                                    for="non">
+                                    2ans
+                                </label>
+                                <div 
+                                    class="offset-lg-1">
+                                </div>
+                                    <a (click)="definir()">
+                                        <input 
+                                        class="form-check-input" 
+                                        type="radio" 
+                                        id="définir" 
+                                        name="radio"
+                                        #def="ngModel"
+                                        ngModel
+                                        [checked]="checked==3">
+                                    </a>
+                                    <label 
+                                        class="form-check-label" 
+                                        for="définir">
+                                        A définir
+                                    </label>
+                                
+                        </div>
+                                 
+                    </div>  
+                    <!--Date début-->
+                    <div 
+                        class="form-inline row "
+                        *ngIf="checked==3">
+                        <label 
+                            for="début" 
+                            class="control-label col-lg-5">
+                            début de renouvellement 
+                        </label>
+                        <ejs-datepicker 
+                            id='datepicker' 
+                            placeholder='Select a date'
+                            id="début"
+                            name="début"
+                            class="col-lg-5 date"
+                            required
+                            ngModel
+                            [(ngModel)]="carte.date_renouvelement[0].dateDebut"
+                            #debut="ngModel"
+                            disabled>
+                        </ejs-datepicker>
+                    </div>
+                    <!--Date Fin-->
+                    <div 
+                        class="form-inline row last"  
+                        *ngIf="checked==3"
+                        >
+                        <label 
+                            for="expire" 
+                            class="control-label col-lg-5">
+                            Date d'expiration 
+                        </label>
+                        <ejs-datepicker 
+                            id='datepicker' 
+                            placeholder='Select a date'
+                            id="expire"
+                            class="col-lg-5 date"
+                            name="expire"
+                            ngModel
+                            [(ngModel)]="carte.date_renouvelement[0].dateFin"
+                            required
+                            #expire="ngModel"
+                            >
+                        </ejs-datepicker>
+                    </div> 
+                    <!--Alert date-->
+                    <!-- <div 
+                        class="alert alert-danger col-lg-5 offset-lg-5"
+                        *ngIf="expire.value < debut.value && expire.valid">
+                        Essayer de prendre votre attention votre date de début 
+                        est plus grand de date d'expiration.      
+                    </div> -->                                 
+                </div>
+            </div>
+        </div>
+        
+        <!--Button-->
+        <div 
+            class="d-flex justify-content-center ">
+            <button 
+                type="submit"
+                (click)="renouveller()"
+                class="btn btn-secondary "
+                [disabled]="!etat">
+                Renouveller
+            </button>
+            <button 
+                class="btn btn-secondary "
+                routerLink="/renouvelementCarte"
+                >
+                Annuler
+            </button>
+        </div>
+    </form>
+</div>

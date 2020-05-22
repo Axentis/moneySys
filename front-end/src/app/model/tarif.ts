@@ -11,7 +11,6 @@ export class Tarif{
                 private taxeCommm?:number,
                 private tauxInterCommm?:number,
                 private tauxInterTranss?:number
-
                 ){}
 
         //getters

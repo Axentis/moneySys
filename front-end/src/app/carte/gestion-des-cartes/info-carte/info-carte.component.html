@@ -1,5 +1,6 @@
 <!--Input de recherche-->
-<div class="body col-lg-12 first">
+<div 
+    class="body col-lg-12 first">
     <div class="col-lg-8 offset-lg-1 margin ">  
         <form class="form">
             <div 
@@ -31,73 +32,73 @@
     class=" body last">
     <!--Tableau-->
     <div 
-    class="col-lg-12 container  tab">       
-        <table 
-            class="table table-hover table-bordered">
-            <thead 
-                class="thead-light">
-                <tr>
-                    <th>
-                        #
-                    </th>
-                    <!--BIN-->
-                    <th 
-                        scope="col">
-                        BIN
-                    </th>
-                    <!--Type-->
-                    <th 
-                        scope="col">
-                        Type
-                    </th>
-                    <!--Code de tarif-->
-                    <th 
-                        scope="col">
-                        Code de tarif
-                    </th>
-                    <!--Etat de carte-->
-                    <th 
-                        scope="col">
-                        Etat
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr 
-                    *ngFor="let c of carte, index as i ">
-                    <th>
-                        {{i+1}}
-                    </th>
-                    <!--BIN-->
-                    <td>
-                        {{ c.BIN }}
-                    </td>
-                    <!--Type-->
-                    <td>
-                        {{ c.type.type }}
-                    </td>
-                    <!--Code de tarif-->
-                    <td>
-                        {{ c.tarif.code_tarif }}
-                    </td>
-                    <!--Etat de carte-->
-                    <td>
-                        {{ c.etat }}
-                    </td>
-                    <!--Boutton pour selectioner-->
-                    <td>
-                        <button 
-                            class="btn selection" 
-                            (click)="onCompte(c)" >
-                            Selectionner
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        class="col-lg-12 container  tab">       
+            <table 
+                class="table table-hover table-bordered">
+                <thead 
+                    class="thead-light">
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <!--BIN-->
+                        <th 
+                            scope="col">
+                            BIN
+                        </th>
+                        <!--Type-->
+                        <th 
+                            scope="col">
+                            Type
+                        </th>
+                        <!--Code de tarif-->
+                        <th 
+                            scope="col">
+                            Code de tarif
+                        </th>
+                        <!--Etat de carte-->
+                        <th 
+                            scope="col">
+                            Etat
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr 
+                        *ngFor="let c of carte, index as i ">
+                        <th>
+                            {{i+1}}
+                        </th>
+                        <!--BIN-->
+                        <td>
+                            {{ c.BIN }}
+                        </td>
+                        <!--Type-->
+                        <td>
+                            {{ c.type.type }}
+                        </td>
+                        <!--Code de tarif-->
+                        <td>
+                            {{ c.tarif.code_tarif }}
+                        </td>
+                        <!--Etat de carte-->
+                        <td>
+                            {{ c.etat }}
+                        </td>
+                        <!--Boutton pour selectioner-->
+                        <td>
+                            <button 
+                                class="btn btn-secondary" 
+                                (click)="onCompte(c)" >
+                                Selectionner
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </div>
    
     <!--Pagination-->
-    <pagination></pagination>
-    <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> -->
+    <!--<pagination></pagination>-->
+     <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> 
 </div>

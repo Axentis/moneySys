@@ -1,0 +1,118 @@
+<!--Header-->
+<div 
+    class="card-header a panel1 marg ">
+        <span *ngIf="etat==true">
+            Création d'une nouvelle opposition de carte
+        </span>
+         <span *ngIf="etat==false"> 
+            Modification d'opposition de carte de Num: {{opposition.code_opposition}
+        </span> 
+    <button 
+      type="button" 
+      class="close" 
+      aria-label="Close">
+      <a routerLink="/oppositionParamCarte">
+        <span 
+            aria-hidden="true">
+            &times;
+        </span>
+      </a>
+    </button>
+</div>
+
+<!--Body-->
+<div 
+    class="panel-body panel1 ">
+    <form 
+        #form="ngForm" 
+        (ngSubmit)="submit()">
+        <!--Inputs-->
+        <div 
+            class="col-sm-11 marg">
+            <div class="col-sm-12 size">
+                <div 
+                    class="card-panel col-sm-8 offset-sm-2 panel1 ">
+                    <!--Code type-->
+                    <div 
+                        class="form-inline row first">
+                        <label 
+                            for="code" 
+                            class="text-left col-lg-5">
+                            Code type
+                        </label>
+                        <input 
+                            type="text" 
+                            id="code"
+                            name="code" 
+                            disabled
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [ngModel]="opposition.code_opposition | value" 
+                            (ngModelChange)="opposition.code_opposition=$event">          
+                    </div>
+                    <!--Libelle-->
+                    <div 
+                        class="form-inline row ">
+                        <label 
+                            for="libelle" 
+                            class="text-left col-lg-5">
+                            Libelle 
+                        </label>
+                        <input 
+                            type="text" 
+                            id="libelle"
+                            name="libelle" 
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [ngModel]="opposition.libelle | value" 
+                            (ngModelChange)="opposition.libelle=$event">
+                    </div> 
+                    <!--Frais d'opposition-->
+                    <div 
+                        class="form-inline row last">
+                        <label 
+                            for="frais" 
+                            class="text-left col-lg-5">
+                            Frais
+                        </label>
+                        <input 
+                            type="text" 
+                            id="frais"
+                            name="frais" 
+                            class="form-control col-lg-6" 
+                            ngModel
+                            [ngModel]="opposition.frais_opposition | value" 
+                            (ngModelChange)="opposition.frais_opposition=$event">
+                    </div>                
+                </div>
+            </div>
+        </div>
+        
+        <!--Button-->
+        <div 
+            class="d-flex justify-content-center ">
+            <button 
+                *ngIf="etat"
+                type="submit"
+                (click)="add()"
+                class="btn btn-secondary "
+                >
+                Ajouter
+            </button>
+            <button 
+                *ngIf="!etat"
+                type="submit"
+                class="btn btn-secondary "
+                routerLink="/oppositionParamCarte"
+                >
+                Modifier
+            </button>
+            <button 
+                class="btn btn-secondary "
+                routerLink="/oppositionParamCarte"
+                >
+                Annuler
+            </button>
+        </div>
+    </form>
+</div>

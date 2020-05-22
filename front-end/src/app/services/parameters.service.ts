@@ -10,6 +10,11 @@ import { ReseauAcceptaion } from '../model/Reseaux';
 //import { CanalAcceptaion } from '../model/canal_d_acceptation';
 import { InfoCarte } from '../model/Info_carte';
 import { Operation } from '../model/Operation';
+import { Opposition } from '../model/opposition';
+import { Rechargement } from '../model/Rechargement';
+import { Renouvelement } from '../model/RenouvelementCarte';
+import { TarifCarte } from '../model/tarif-carte';
+import { PlafondCarte } from '../model/plafondCarte';
 
 @Injectable({
   providedIn: 'root'
@@ -21,12 +26,19 @@ export class ParametersService {
   comptee:Compte;
   porteurr:Porteur;
   info_cartee:InfoCarte;
+  rechargementt:Rechargement;
+  renouvelementt:Renouvelement
   cartee:Carte;
   type_cartee:TypeCarte;
-  tarif_cartee:Tarif;
+  //Tarif de commerçant
+  tariff:Tarif;
+  //Tarif de carte
+  tarif_cartee:TarifCarte;
+  plafond_cartee:PlafondCarte
+  opposition_cartee:Opposition;
   operationn:Operation;
   //canal:CanalAcceptaion;
-  etatt:boolean
+  etatt:boolean=true
   constructor() { }
 
   //Intanciations
@@ -50,25 +62,48 @@ export class ParametersService {
     return new InfoCarte(0,this.type_carte,this.tarif_carte,"")
   }
   get type_carte(){
-    return new TypeCarte(0,"");
+    return new TypeCarte(0,"",0,0);
   }
-  get tarif_carte(){
+  get tarif(){
     return new Tarif(0,"",0,0,0,0,0,0,0,0,0,0);
   }
-  
+  get tarif_carte(){
+    return new TarifCarte(0,"",0,0)
+  }
+  get plafond_carte(){
+    return new PlafondCarte(0,0,0);
+  }
+  get rechargement(){
+    return new Rechargement(new Date(),0,0)
+  }
+  get renouvelement(){
+    return new Renouvelement(0,new Date(),new Date())
+  }
+  get opposition_carte(){
+    return new Opposition(0,"",0)
+  }
   get carte(){
-    return new Carte(0,this.info_carte,"",false,false,false,[this.compte],this.porteur,new Date(),new Date)
+    return new Carte(0,this.info_carte,"",false,false,false,[this.rechargement],this.compte,this.porteur,[this.renouvelement],this.opposition_carte);
   }
   
   get etat(){
     return this.etatt
   }
   // getters
-  tarif(){
+  tarifCom(){
+    return this.tarif
+  }
+  tarifCart(){
     return this.tarif_cartee
   }
   type(){
     return this.type_cartee
+  }
+  plafond(){
+    return this.plafond_cartee
+  }
+  opposition(){
+    return this.opposition_cartee
   }
   cart(){
     return this.cartee
@@ -93,14 +128,27 @@ export class ParametersService {
     this.porteurr=value
   }
   //Setters
-   set_tarif_carte(tarif:Tarif){
-    this.tarif_cartee=tarif
+   set_tarif_carte(tarif_carte:TarifCarte){
+    this.tarif_cartee=tarif_carte
   }
   set_type_carte(type:TypeCarte){
     this.type_cartee=type
   }
+  set_plafond_carte(plafond:PlafondCarte){
+    this.plafond_cartee=plafond
+  }
+  set_opposition_carte(opposition:Opposition){
+    this.opposition_cartee=opposition
+  }
   set_carte(carte:Carte){
     this.cartee=carte
+  }
+  set_rechargement(rechargement:Rechargement)
+  {
+    this.rechargementt=rechargement
+  }
+  set_Renouvelement(renouvelement:Renouvelement){
+    this.renouvelementt=renouvelement
   }
   etattt(etat:boolean){
     this.etatt=etat
